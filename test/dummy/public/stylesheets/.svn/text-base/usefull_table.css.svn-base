@@ -1,0 +1,101 @@
+/*Excel*/
+div.usefull_table_excel  input[type='submit']{
+	background: orange;
+	border-width: 1px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+/*Paginator */
+div.usefull_table_paginator {
+	width: 100%;
+	background: white;
+	cursor: default;
+	border: 2px solid #dddddd;
+}
+
+/* self-clearing method: */ 
+ .usefull_table_paginator span{
+	margin:0;
+	padding:0;
+	border:0;
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	font:inherit;
+	vertical-align:baseline;
+	display: inline;
+	float: left;}
+.usefull_table_paginator a, .usefull_table_paginator, .usefull_table_paginator em {
+    padding: 0.1em 0.2em;
+    display: inline;
+    float: left;
+    margin-right: 1px; }
+.usefull_table_paginator .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+.usefull_table_paginator .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #2e6ab1;
+    color: white;
+    border: 1px solid #2e6ab1; }
+.usefull_table_paginator a {
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #9aafe5; }
+.usefull_table_paginator a:hover, .usefull_table_paginator a:focus {
+      color: #000033;
+      border-color: #000033; }
+.usefull_table_paginator .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 0.3em;
+    text-align: center; }
+.usefull_table_paginator .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; }
+.usefull_table_paginator:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+* html .usefull_table_paginator {
+    height: 1%; }
+*:first-child + html .usefull_table_paginator {
+    overflow: hidden; }
+
+/* Table*/
+div.usefull_table table {
+	border-collapse:collapse;
+	border-spacing:0;
+	margin-bottom:1.4em;
+	width:100%;}
+div.usefull_table tbody tr.first_row {
+	background:#C3D934;}
+div.usefull_table tbody tr.odd {
+	background-color: #FFFFFF;}
+div.usefull_table tbody tr.even {
+	background-color: #E5ECF9;}
+div.usefull_table td, .usefull_table th {
+	padding:2px 4px;
+	text-align:left;
+	margin:0;
+	vertical-align:middle;
+	float:none !important;
+	max-width:500px;
+	border-collapse: collapse;}
+div.usefull_table th {
+	font-weight:bold;
+	border:0 none;}
+div.usefull_table td {
+	border-bottom:1px solid red;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	font-weight:normal;}

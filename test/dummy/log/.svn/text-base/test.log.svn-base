@@ -1,0 +1,205 @@
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20120530121139)
+Migrating to CreateItems (20120530121204)
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20120530121139)
+Migrating to CreateItems (20120530121204)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Rendered home/index.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 29ms (Views: 24.8ms | ActiveRecord: 1.8ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.6ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.6ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.6ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (2.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 133ms (Views: 129.4ms | ActiveRecord: 2.6ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 0.6ms)
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20120530121139)
+Migrating to CreateItems (20120530121204)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Rendered home/index.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 29ms (Views: 25.1ms | ActiveRecord: 2.0ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.6ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.6ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.6ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (2.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 116ms (Views: 112.2ms | ActiveRecord: 2.6ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.5ms)
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20120530121139)
+Migrating to CreateItems (20120530121204)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Rendered home/index.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 29ms (Views: 24.8ms | ActiveRecord: 1.7ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.6ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.6ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.5ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (2.5ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 111ms (Views: 106.9ms | ActiveRecord: 2.9ms)
+  Processing by HomeController#index as HTML
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :html=>{:class=>"usefull_table_container"}, :monitor=>{:visible=>false}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.6ms)

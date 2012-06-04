@@ -1,0 +1,12 @@
+#Ricordarsi di metterlo nei template da copiare con il generatore...
+it:
+  usefull_table:
+    submit_excel: Excel
+    header_error: Errore
+    body_error: Errore
+    
+    icons:
+      show: "usefull_table_show.png"
+      edit: "usefull_table_edit.png"
+      destroy: "usefull_table_destroy.png"
+      download: "usefull_table_download.png" 

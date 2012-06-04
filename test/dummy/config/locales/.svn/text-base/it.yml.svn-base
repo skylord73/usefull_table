@@ -1,0 +1,7 @@
+it:
+  activerecord:
+    models:
+      user:
+        one: utente
+        other: utenti
+      item: oggetti

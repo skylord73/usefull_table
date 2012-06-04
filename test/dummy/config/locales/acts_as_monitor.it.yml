@@ -1,0 +1,16 @@
+it:
+  acts_as_monitor:
+    icons:
+      red: acts_as_monitor_red.png
+      yellow: acts_as_monitor_yellow.png
+      green: acts_as_monitor_green.png
+      alt_image: "Clicca per visualizzare i dettagli"
+    errors:
+      missing_method: "Aggiungi acts_as_monitor alla classe da monitorare"
+    messages:
+      errors: Errori
+      warnings: Avvisi
+      #test_clas:                     #class name (TestClass)
+        #warn_test: "Warning Test"    #warning method name
+        #error_test: "Error Test"     #error method name
+      #myspace_test_class:            #class name (Myspace::TestClass)

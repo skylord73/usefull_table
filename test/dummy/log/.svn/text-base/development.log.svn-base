@@ -1,0 +1,832 @@
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/andrea/usefull_table/test/dummy/app/controllers/application_controller.rb:1)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/andrea/usefull_table/test/dummy/app/controllers/application_controller.rb:1)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/andrea/usefull_table/test/dummy/app/controllers/application_controller.rb:1)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /usr/lib/ruby/1.8/webrick/httpserver.rb:104)
+
+
+Started GET "/home?page=1" for 10.2.12.173 at Mon Jun 04 16:34:06 +0200 2012
+
+ActionController::RoutingError (No route matches "/home"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /usr/lib/ruby/1.8/webrick/httpserver.rb:104)
+
+
+Started GET "/home?page=1" for 10.2.12.173 at Mon Jun 04 16:35:03 +0200 2012
+  Processing by HomeController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed 500 Internal Server Error in 75ms
+
+NoMethodError (undefined method `per_page=' for #<Class:0xb60fe89c>):
+  app/models/item.rb:4
+  app/controllers/home_controller.rb:3:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.1ms)
+
+
+Started GET "/home?page=1" for 10.2.12.173 at Mon Jun 04 16:35:08 +0200 2012
+  Processing by HomeController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Completed 500 Internal Server Error in 8ms
+
+NoMethodError (undefined method `per_page=' for #<Class:0xb6506084>):
+  app/models/item.rb:4
+  app/controllers/home_controller.rb:3:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/andrea/usefull_table/test/dummy/config/environment.rb:5)
+
+
+Started GET "/home?page=1" for 10.2.12.173 at Mon Jun 04 16:40:13 +0200 2012
+  Processing by HomeController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "items"
+table_for START options={:excel=>{:visible=>false}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>false}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:class=>"usefull_table_paginator", :visible=>true}}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" LIMIT 2 OFFSET 0[0m
+TableHelper#usefull_table_for 
+TableBuilder#body
+TableBuilder#attribute_link obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute={:label=>:show, :type=>:link, :body_type=>:plain, :url=>#<Proc:0xb61d24bc@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:5>, :name=>:show, :header_type=>:nil}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="pc", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:label=>"user.name", :type=>:column, :body_type=>:value, :name=>"user.name", :header_type=>:sort}
+TableBuilder#body
+TableBuilder#attribute_link obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute={:label=>:show, :type=>:link, :body_type=>:plain, :url=>#<Proc:0xb61d24bc@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:5>, :name=>:show, :header_type=>:nil}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="usb", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:label=>"user.name", :type=>:column, :body_type=>:value, :name=>"user.name", :header_type=>:sort}
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+table_for START options={}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:human}, :excel=>{:filter=>false, :worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:class=>"usefull_table_paginator", :visible=>true}}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+TableHelper#usefull_table_for 
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 30 OFFSET 0[0m
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 1, name: "pippo", created_at: "2012-05-30 12:39:34", updated_at: "2012-05-30 12:39:34">, attribute=:name
+TableBuilder#body a="pippo", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:human}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 2, name: "pippo", created_at: "2012-05-30 12:39:47", updated_at: "2012-05-30 12:39:47">, attribute=:name
+TableBuilder#body a="pippo", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:human}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 3, name: "pluto", created_at: "2012-05-30 12:39:52", updated_at: "2012-05-30 12:39:52">, attribute=:name
+TableBuilder#body a="pluto", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:human}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 4, name: "paperino", created_at: "2012-05-31 14:30:36", updated_at: "2012-05-31 14:30:36">, attribute=:name
+TableBuilder#body a="paperino", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:human}
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items"
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="pc", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:label=>"user.name", :type=>:column, :body_type=>:link, :url=>#<Proc:0xb61d1ae4@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name", :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="usb", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:label=>"user.name", :type=>:column, :body_type=>:link, :url=>#<Proc:0xb61d1ae4@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name", :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 3, name: "pen", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute=:name
+TableBuilder#body a="pen", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 3, name: "pen", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute="user.name"
+TableBuilder#body a="pippo", attribute={:label=>"user.name", :type=>:column, :body_type=>:link, :url=>#<Proc:0xb61d1ae4@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name", :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 4, name: "boot", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute=:name
+TableBuilder#body a="boot", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 4, name: "boot", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute="user.name"
+TableBuilder#body a="pippo", attribute={:label=>"user.name", :type=>:column, :body_type=>:link, :url=>#<Proc:0xb61d1ae4@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name", :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 5, name: "without owner", user_id: nil, created_at: "2012-05-31 14:31:20", updated_at: "2012-05-31 14:31:20">, attribute=:name
+TableBuilder#body a="without owner", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 5, name: "without owner", user_id: nil, created_at: "2012-05-31 14:31:20", updated_at: "2012-05-31 14:31:20">, attribute="user.name"
+TableBuilder#body a="", attribute={:label=>"user.name", :type=>:column, :body_type=>:link, :url=>#<Proc:0xb61d1ae4@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name", :header_type=>:sort}
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:human}, :excel=>{:filter=>false, :worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:class=>"usefull_table_paginator", :visible=>true}}
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+TableHelper#usefull_table_for 
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 30 OFFSET 0
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 1, name: "pippo", created_at: "2012-05-30 12:39:34", updated_at: "2012-05-30 12:39:34">, attribute=:name
+TableBuilder#body a="pippo", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:human}
+Rendered home/index.html.erb within layouts/application (161.7ms)
+Completed 200 OK in 190ms (Views: 165.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/stylesheets/usefull_table.css" for 10.2.12.173 at Mon Jun 04 16:40:14 +0200 2012
+
+ActionController::RoutingError (No route matches "/stylesheets/usefull_table.css"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/translation%20missing:%20en.usefull_table.icons.show" for 10.2.12.173 at Mon Jun 04 16:40:14 +0200 2012
+
+ActionController::RoutingError (No route matches "/images/translation%20missing:%20en.usefull_table.icons.show"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/translation%20missing:%20en.usefull_table.icons.show" for 10.2.12.173 at Mon Jun 04 16:40:17 +0200 2012
+
+ActionController::RoutingError (No route matches "/images/translation%20missing:%20en.usefull_table.icons.show"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/stylesheets/usefull_table.css" for 10.2.12.173 at Mon Jun 04 16:40:17 +0200 2012
+
+ActionController::RoutingError (No route matches "/stylesheets/usefull_table.css"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/andrea/usefull_table/test/dummy/config/environment.rb:5)
+
+
+Started GET "/home?page=1" for 10.2.12.173 at Mon Jun 04 16:42:14 +0200 2012
+  Processing by HomeController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+table_for START options={:excel=>{:visible=>false}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>false}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:class=>"usefull_table_paginator", :visible=>true}}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" LIMIT 2 OFFSET 0[0m
+TableHelper#usefull_table_for 
+TableBuilder#body
+TableBuilder#attribute_link obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute={:label=>:show, :type=>:link, :body_type=>:plain, :url=>#<Proc:0xb62ac4f0@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:5>, :name=>:show, :header_type=>:nil}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="pc", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:label=>"user.name", :type=>:column, :body_type=>:value, :name=>"user.name", :header_type=>:sort}
+TableBuilder#body
+TableBuilder#attribute_link obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute={:label=>:show, :type=>:link, :body_type=>:plain, :url=>#<Proc:0xb62ac4f0@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:5>, :name=>:show, :header_type=>:nil}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="usb", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:label=>"user.name", :type=>:column, :body_type=>:value, :name=>"user.name", :header_type=>:sort}
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+table_for START options={}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:human}, :excel=>{:filter=>false, :worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:class=>"usefull_table_paginator", :visible=>true}}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+TableHelper#usefull_table_for 
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 30 OFFSET 0[0m
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 1, name: "pippo", created_at: "2012-05-30 12:39:34", updated_at: "2012-05-30 12:39:34">, attribute=:name
+TableBuilder#body a="pippo", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:human}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 2, name: "pippo", created_at: "2012-05-30 12:39:47", updated_at: "2012-05-30 12:39:47">, attribute=:name
+TableBuilder#body a="pippo", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:human}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 3, name: "pluto", created_at: "2012-05-30 12:39:52", updated_at: "2012-05-30 12:39:52">, attribute=:name
+TableBuilder#body a="pluto", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:human}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 4, name: "paperino", created_at: "2012-05-31 14:30:36", updated_at: "2012-05-31 14:30:36">, attribute=:name
+TableBuilder#body a="paperino", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:human}
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:sort}, :excel=>{:worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:class=>"usefull_table_paginator", :visible=>false}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items"
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="pc", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:label=>"user.name", :type=>:column, :body_type=>:link, :url=>#<Proc:0xb62abb18@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name", :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="usb", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:label=>"user.name", :type=>:column, :body_type=>:link, :url=>#<Proc:0xb62abb18@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name", :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 3, name: "pen", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute=:name
+TableBuilder#body a="pen", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 3, name: "pen", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute="user.name"
+TableBuilder#body a="pippo", attribute={:label=>"user.name", :type=>:column, :body_type=>:link, :url=>#<Proc:0xb62abb18@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name", :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 4, name: "boot", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute=:name
+TableBuilder#body a="boot", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 4, name: "boot", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute="user.name"
+TableBuilder#body a="pippo", attribute={:label=>"user.name", :type=>:column, :body_type=>:link, :url=>#<Proc:0xb62abb18@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name", :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 5, name: "without owner", user_id: nil, created_at: "2012-05-31 14:31:20", updated_at: "2012-05-31 14:31:20">, attribute=:name
+TableBuilder#body a="without owner", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:sort}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 5, name: "without owner", user_id: nil, created_at: "2012-05-31 14:31:20", updated_at: "2012-05-31 14:31:20">, attribute="user.name"
+TableBuilder#body a="", attribute={:label=>"user.name", :type=>:column, :body_type=>:link, :url=>#<Proc:0xb62abb18@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name", :header_type=>:sort}
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}, :header_type=>:human}, :excel=>{:filter=>false, :worksheet=>"ActiveRecord#Relation", :human=>true, :visible=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:class=>"usefull_table_paginator", :visible=>true}}
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+TableHelper#usefull_table_for 
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 30 OFFSET 0
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 1, name: "pippo", created_at: "2012-05-30 12:39:34", updated_at: "2012-05-30 12:39:34">, attribute=:name
+TableBuilder#body a="pippo", attribute={:label=>:name, :type=>:column, :body_type=>:value, :name=>:name, :header_type=>:human}
+Rendered home/index.html.erb within layouts/application (163.4ms)
+Completed 200 OK in 191ms (Views: 167.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/stylesheets/usefull_table.css" for 10.2.12.173 at Mon Jun 04 16:42:15 +0200 2012
+
+ActionController::RoutingError (No route matches "/stylesheets/usefull_table.css"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/translation%20missing:%20en.usefull_table.icons.show" for 10.2.12.173 at Mon Jun 04 16:42:15 +0200 2012
+
+ActionController::RoutingError (No route matches "/images/translation%20missing:%20en.usefull_table.icons.show"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/translation%20missing:%20en.usefull_table.icons.show" for 10.2.12.173 at Mon Jun 04 16:42:17 +0200 2012
+
+ActionController::RoutingError (No route matches "/images/translation%20missing:%20en.usefull_table.icons.show"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/stylesheets/usefull_table.css" for 10.2.12.173 at Mon Jun 04 16:42:17 +0200 2012
+
+ActionController::RoutingError (No route matches "/stylesheets/usefull_table.css"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/andrea/usefull_table/test/dummy/config/environment.rb:5)
+
+
+Started GET "/home?page=1" for 10.2.12.173 at Mon Jun 04 16:43:12 +0200 2012
+  Processing by HomeController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "items"
+table_for START options={:excel=>{:visible=>false}}
+table_for POST options={:table=>{:header_type=>:sort, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:visible=>false, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>true, :class=>"usefull_table_paginator"}}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" LIMIT 2 OFFSET 0[0m
+TableHelper#usefull_table_for 
+TableBuilder#body
+TableBuilder#attribute_link obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute={:header_type=>:nil, :type=>:link, :label=>:show, :body_type=>:plain, :url=>#<Proc:0xb61b6d20@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:5>, :name=>:show}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="pc", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:value, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#attribute_link obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute={:header_type=>:nil, :type=>:link, :label=>:show, :body_type=>:plain, :url=>#<Proc:0xb61b6d20@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:5>, :name=>:show}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="usb", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:value, :name=>"user.name"}
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+table_for START options={}
+table_for POST options={:table=>{:header_type=>:human, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:filter=>false, :visible=>true, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>true, :class=>"usefull_table_paginator"}}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+TableHelper#usefull_table_for 
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 30 OFFSET 0[0m
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 1, name: "pippo", created_at: "2012-05-30 12:39:34", updated_at: "2012-05-30 12:39:34">, attribute=:name
+TableBuilder#body a="pippo", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 2, name: "pippo", created_at: "2012-05-30 12:39:47", updated_at: "2012-05-30 12:39:47">, attribute=:name
+TableBuilder#body a="pippo", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 3, name: "pluto", created_at: "2012-05-30 12:39:52", updated_at: "2012-05-30 12:39:52">, attribute=:name
+TableBuilder#body a="pluto", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 4, name: "paperino", created_at: "2012-05-31 14:30:36", updated_at: "2012-05-31 14:30:36">, attribute=:name
+TableBuilder#body a="paperino", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:header_type=>:sort, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:visible=>true, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>false, :class=>"usefull_table_paginator"}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items"
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="pc", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb61b6280@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="usb", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb61b6280@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 3, name: "pen", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute=:name
+TableBuilder#body a="pen", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 3, name: "pen", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute="user.name"
+TableBuilder#body a="pippo", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb61b6280@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 4, name: "boot", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute=:name
+TableBuilder#body a="boot", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 4, name: "boot", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute="user.name"
+TableBuilder#body a="pippo", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb61b6280@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 5, name: "without owner", user_id: nil, created_at: "2012-05-31 14:31:20", updated_at: "2012-05-31 14:31:20">, attribute=:name
+TableBuilder#body a="without owner", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 5, name: "without owner", user_id: nil, created_at: "2012-05-31 14:31:20", updated_at: "2012-05-31 14:31:20">, attribute="user.name"
+TableBuilder#body a="", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb61b6280@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:header_type=>:human, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:filter=>false, :visible=>true, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>true, :class=>"usefull_table_paginator"}}
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+TableHelper#usefull_table_for 
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 30 OFFSET 0
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 1, name: "pippo", created_at: "2012-05-30 12:39:34", updated_at: "2012-05-30 12:39:34">, attribute=:name
+TableBuilder#body a="pippo", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+Rendered home/index.html.erb within layouts/application (158.0ms)
+Completed 200 OK in 186ms (Views: 162.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/stylesheets/usefull_table.css" for 10.2.12.173 at Mon Jun 04 16:43:13 +0200 2012
+
+ActionController::RoutingError (No route matches "/stylesheets/usefull_table.css"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/usefull_table_show.png" for 10.2.12.173 at Mon Jun 04 16:43:13 +0200 2012
+
+ActionController::RoutingError (No route matches "/images/usefull_table_show.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/usefull_table_show.png" for 10.2.12.173 at Mon Jun 04 16:43:15 +0200 2012
+
+ActionController::RoutingError (No route matches "/images/usefull_table_show.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/stylesheets/usefull_table.css" for 10.2.12.173 at Mon Jun 04 16:43:15 +0200 2012
+
+ActionController::RoutingError (No route matches "/stylesheets/usefull_table.css"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/andrea/usefull_table/test/dummy/config/environment.rb:5)
+
+
+Started GET "/home?page=1" for 10.2.12.173 at Mon Jun 04 16:44:23 +0200 2012
+  Processing by HomeController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+table_for START options={:excel=>{:visible=>false}}
+table_for POST options={:table=>{:header_type=>:sort, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:visible=>false, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>true, :class=>"usefull_table_paginator"}}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" LIMIT 2 OFFSET 0[0m
+TableHelper#usefull_table_for 
+TableBuilder#body
+TableBuilder#attribute_link obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute={:header_type=>:nil, :type=>:link, :label=>:show, :body_type=>:plain, :url=>#<Proc:0xb6247424@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:5>, :name=>:show}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="pc", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:value, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#attribute_link obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute={:header_type=>:nil, :type=>:link, :label=>:show, :body_type=>:plain, :url=>#<Proc:0xb6247424@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:5>, :name=>:show}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="usb", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:value, :name=>"user.name"}
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+table_for START options={}
+table_for POST options={:table=>{:header_type=>:human, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:filter=>false, :visible=>true, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>true, :class=>"usefull_table_paginator"}}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+TableHelper#usefull_table_for 
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 30 OFFSET 0[0m
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 1, name: "pippo", created_at: "2012-05-30 12:39:34", updated_at: "2012-05-30 12:39:34">, attribute=:name
+TableBuilder#body a="pippo", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 2, name: "pippo", created_at: "2012-05-30 12:39:47", updated_at: "2012-05-30 12:39:47">, attribute=:name
+TableBuilder#body a="pippo", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 3, name: "pluto", created_at: "2012-05-30 12:39:52", updated_at: "2012-05-30 12:39:52">, attribute=:name
+TableBuilder#body a="pluto", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 4, name: "paperino", created_at: "2012-05-31 14:30:36", updated_at: "2012-05-31 14:30:36">, attribute=:name
+TableBuilder#body a="paperino", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:header_type=>:sort, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:visible=>true, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>false, :class=>"usefull_table_paginator"}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items"
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="pc", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb6246a4c@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="usb", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb6246a4c@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 3, name: "pen", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute=:name
+TableBuilder#body a="pen", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 3, name: "pen", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute="user.name"
+TableBuilder#body a="pippo", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb6246a4c@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 4, name: "boot", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute=:name
+TableBuilder#body a="boot", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 4, name: "boot", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute="user.name"
+TableBuilder#body a="pippo", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb6246a4c@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 5, name: "without owner", user_id: nil, created_at: "2012-05-31 14:31:20", updated_at: "2012-05-31 14:31:20">, attribute=:name
+TableBuilder#body a="without owner", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 5, name: "without owner", user_id: nil, created_at: "2012-05-31 14:31:20", updated_at: "2012-05-31 14:31:20">, attribute="user.name"
+TableBuilder#body a="", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb6246a4c@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:header_type=>:human, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:filter=>false, :visible=>true, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>true, :class=>"usefull_table_paginator"}}
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+TableHelper#usefull_table_for 
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 30 OFFSET 0
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 1, name: "pippo", created_at: "2012-05-30 12:39:34", updated_at: "2012-05-30 12:39:34">, attribute=:name
+TableBuilder#body a="pippo", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+Rendered home/index.html.erb within layouts/application (166.9ms)
+Completed 200 OK in 195ms (Views: 170.8ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/images/usefull_table_show.png" for 10.2.12.173 at Mon Jun 04 16:44:24 +0200 2012
+
+ActionController::RoutingError (No route matches "/images/usefull_table_show.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/usefull_table_show.png" for 10.2.12.173 at Mon Jun 04 16:44:26 +0200 2012
+
+ActionController::RoutingError (No route matches "/images/usefull_table_show.png"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/andrea/usefull_table/test/dummy/config/environment.rb:5)
+
+
+Started GET "/home?page=1" for 10.2.12.173 at Mon Jun 04 16:45:16 +0200 2012
+  Processing by HomeController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "items"
+table_for START options={:excel=>{:visible=>false}}
+table_for POST options={:table=>{:header_type=>:sort, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:visible=>false, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>true, :class=>"usefull_table_paginator"}}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" LIMIT 2 OFFSET 0[0m
+TableHelper#usefull_table_for 
+TableBuilder#body
+TableBuilder#attribute_link obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute={:header_type=>:nil, :type=>:link, :label=>:show, :body_type=>:plain, :url=>#<Proc:0xb62c4424@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:5>, :name=>:show}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="pc", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:value, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#attribute_link obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute={:header_type=>:nil, :type=>:link, :label=>:show, :body_type=>:plain, :url=>#<Proc:0xb62c4424@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:5>, :name=>:show}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="usb", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:value, :name=>"user.name"}
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+table_for START options={}
+table_for POST options={:table=>{:header_type=>:human, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:filter=>false, :visible=>true, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>true, :class=>"usefull_table_paginator"}}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+TableHelper#usefull_table_for 
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 30 OFFSET 0[0m
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 1, name: "pippo", created_at: "2012-05-30 12:39:34", updated_at: "2012-05-30 12:39:34">, attribute=:name
+TableBuilder#body a="pippo", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 2, name: "pippo", created_at: "2012-05-30 12:39:47", updated_at: "2012-05-30 12:39:47">, attribute=:name
+TableBuilder#body a="pippo", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 3, name: "pluto", created_at: "2012-05-30 12:39:52", updated_at: "2012-05-30 12:39:52">, attribute=:name
+TableBuilder#body a="pluto", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 4, name: "paperino", created_at: "2012-05-31 14:30:36", updated_at: "2012-05-31 14:30:36">, attribute=:name
+TableBuilder#body a="paperino", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:header_type=>:sort, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:visible=>true, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>false, :class=>"usefull_table_paginator"}}
+TableHelper#usefull_table_for 
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items"
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="pc", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 1, name: "pc", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb62c3a4c@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute=:name
+TableBuilder#body a="usb", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 2, name: "usb", user_id: 3, created_at: "2012-05-30 12:41:11", updated_at: "2012-05-30 12:41:11">, attribute="user.name"
+TableBuilder#body a="pluto", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb62c3a4c@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 3, name: "pen", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute=:name
+TableBuilder#body a="pen", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+TableBuilder#attribute_value obj=#<Item id: 3, name: "pen", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute="user.name"
+TableBuilder#body a="pippo", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb62c3a4c@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 4, name: "boot", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute=:name
+TableBuilder#body a="boot", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+TableBuilder#attribute_value obj=#<Item id: 4, name: "boot", user_id: 1, created_at: "2012-05-30 12:41:47", updated_at: "2012-05-30 12:41:47">, attribute="user.name"
+TableBuilder#body a="pippo", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb62c3a4c@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 5, name: "without owner", user_id: nil, created_at: "2012-05-31 14:31:20", updated_at: "2012-05-31 14:31:20">, attribute=:name
+TableBuilder#body a="without owner", attribute={:header_type=>:sort, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<Item id: 5, name: "without owner", user_id: nil, created_at: "2012-05-31 14:31:20", updated_at: "2012-05-31 14:31:20">, attribute="user.name"
+TableBuilder#body a="", attribute={:header_type=>:sort, :type=>:column, :label=>"user.name", :body_type=>:link, :url=>#<Proc:0xb62c3a4c@/home/andrea/usefull_table/test/dummy/app/views/home/index.html.erb:20>, :name=>"user.name"}
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+table_for START options={:excel=>{:visible=>true}}
+table_for POST options={:table=>{:header_type=>:human, :div_html=>{:class=>"usefull_table"}, :header_html=>{:class=>"first_row"}}, :excel=>{:filter=>false, :visible=>true, :worksheet=>"ActiveRecord#Relation", :human=>true}, :monitor=>{:visible=>false}, :html=>{:class=>"usefull_table_container"}, :paginator=>{:visible=>true, :class=>"usefull_table_paginator"}}
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."id" = 1[0m
+TableHelper#usefull_table_for 
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 30 OFFSET 0
+TableBuilder#body
+TableBuilder#typeize
+TableBuilder#attribute_value obj=#<User id: 1, name: "pippo", created_at: "2012-05-30 12:39:34", updated_at: "2012-05-30 12:39:34">, attribute=:name
+TableBuilder#body a="pippo", attribute={:header_type=>:human, :type=>:column, :label=>:name, :body_type=>:value, :name=>:name}
+Rendered home/index.html.erb within layouts/application (161.9ms)
+Completed 200 OK in 190ms (Views: 166.0ms | ActiveRecord: 4.4ms)

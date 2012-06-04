@@ -1,0 +1,23 @@
+#Will Paginate gem Locales
+
+it:
+  will_paginate:
+    previous_label: Precedente
+    next_label: Successiva
+    page_gap: "..."
+    page_entries_info:
+      single_page:
+        zero: "Nessun %{model} trovato"
+        one: "Visualizza 1 %{model}"
+        other: "Visualizza tutti e %{count} gli %{model}"
+      single_page_html:
+        zero: "Nessun %{model} trovato"
+        one: "Visualizza 1 %{model}"
+        other: "Visualizza tutti e %{count} gli %{model}"
+      #multi_page: "Displaying %{plural} %{from} - %{to} of %{total} in total"
+      multi_page: "Visualizza %{model} dal  %{from} al %{to} di  %{count}  "
+      #multi_page_html: "Displaying %{plural} <b class='range'>%{from}&nbsp;-&nbsp;%{to}</b> of <b class='total'>%{total}</b> in total"
+      multi_page_html: "Visualizza %{model} dal  %{from} al %{to} di  %{count}  "
+        
+  
+    

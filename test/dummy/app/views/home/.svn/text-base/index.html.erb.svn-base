@@ -1,0 +1,35 @@
+<h1>Home Page Test site</h1>
+
+    <div class = "items_search" >
+      <%= table_for @items, @search, :excel => {:visible => false} do |t| %>
+        <% t.show :url => Proc.new {|object| home_path(object.id) } %>
+        <% t.col :name %>
+        <% t.col "user.name" %>
+      <% end %>
+    </div>
+    
+    <div class = "items" >
+      <%= table_for @users do |t| %>
+        <% t.col :name %>
+      <% end %>
+    </div>
+  
+    <div class = "search" >
+      <%= table_for @search, :excel => {:visible => true} do |t| %>
+        <% t.col :name %>
+        <% t.col "user.name", :url => Proc.new {|object| home_path(object.id) }%>
+      <% end %>
+    </div>
+ 
+  <div class = "empty" >
+      <%= table_for @empty, :excel => {:visible => true} do |t| %>
+        <% t.col :name %>
+        <% t.col "user.name", :url => Proc.new {|object| home_path(object.id) }%>
+      <% end %>
+    </div>
+    
+    <div class = "user" >
+      <%= table_for @user, :excel => {:visible => true} do |t| %>
+        <% t.col :name %>
+      <% end %>
+    </div>
