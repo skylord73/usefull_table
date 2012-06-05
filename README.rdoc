@@ -16,6 +16,7 @@ copy icons, javascript and stylesheets:
   
 ==Usage
 
+In your controller:
   #app/controllers/home_controller.rb
    def index
      @search = Item.search(params[:search])
@@ -25,7 +26,8 @@ copy icons, javascript and stylesheets:
      end
      ...
    end
-   
+
+in views:
    #app/views/home/my_view.html.erb
    <%= table_for @items, @search, options = {} do |t| %>
      <% t.show :url => Proc.new { |item| item_path(item)} %>
@@ -41,8 +43,8 @@ copy icons, javascript and stylesheets:
 default values in *bold*
 
 ===Paginator
-   options[:paginator][:visible] = *true* | false  _note_: false if @items not present
-   options[:paginator][:class] = *"usefull_table_paginator"*
+   options[:paginator][:visible] = <b>true</b> | false  <em>note</em>: false if @items not present
+   options[:paginator][:class] = <b>"usefull_table_paginator"</b>
       
 ===Container
    options[:html] =  *{:class => "usefull_table_container"}*
