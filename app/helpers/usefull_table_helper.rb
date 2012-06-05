@@ -14,7 +14,7 @@ module UsefullTableHelper
   # <%= table_for @items, @search, options = {} do |t| %>
   #   <% t.show :url => Proc.new { |item| item_path(item)} %>
   #   <% t.edit :url => Proc.new { |item| edit_item_path(item)}%>
-  #   <% t.destroy :url => Proc.new { |item| item_path(item)} %>
+  #   <% t.destroy :url => Proc.new { |item| item_path(item)}, :link_options => {:method => delete, :confirm => "are you sure?"} %>
   #   <% t.download :url => Proc.new { |item| download_item_path(item)} %>
   #   <% t.col :name %>
   #   <% t.col "user.name" %>
@@ -182,20 +182,20 @@ module UsefullTableHelper
   #
   #
   #==@data
-  #@data contiene i dati nella seguente forma
-  #[ {dato}, ...]
-  #dove {dato} è cos' strutturato
+  #@data array contains columns data in the form:
+  #[ {column1}, {column2} ...]
+  #where {column} is an hash with the following options:
   #*  {
-  #*    :nome => nome colonna (ActiveRecord)
+  #*    :nome => column name (ActiveRecord) int the form :column or "collection.column"
   #*    :type => :column | :link
-  #*    :label => etichetta della colonna (== nome se non specificato)
-  #*    :header_type => :sort | :plain | :human
-  #*    :body_type => :value (viene valutato) | :plain (già stringa da rappresentare)
+  #*    :label =>  "wath you want" | column name if not specified
+  #*    :header_type => :sort | :plain | :human | :nil
+  #*    :body_type => :value (column value) | :plain (wathever you write as column name)
   class TableBuilder #:doc:
     DATE = [:date, :datetime]
     LINK = [:show, :edit, :destroy, :download]
 
-    #==Parameters
+    #Initialize Builder with the following parameters:
     # @data = [ {column}, .. ]        see #col description
     # @object => ActiveRecod instance (paginated)
     # @search => MetaSearch instance
@@ -316,12 +316,12 @@ module UsefullTableHelper
       @data << options
     end
     
-    #Crea un inidcatore di stato utilizzando il metodo status_flag implementato in ActiveRecord 
-    #*  Rosso : Errore
+    #Create a tri-state icon to monitor model status
+    #*  Rosso : Error
     #*  Giallo: Warning
-    #*  Verde: Nessun problema
+    #*  Verde: Status ok
     #
-    #ToDo: Implementare un link au un pop_up che evidenzia gli errori presenti
+    #Clicking the icon you get the comlete problem description pushed by Ajaxs script (no page reload)
     def status(*args)
       options = args.extract_options!
       options[:name] = :status_flag
@@ -358,13 +358,12 @@ module UsefullTableHelper
 
     private
 
-    #Verifica ase un attributo ha la label del tipo document.documentbody.TbDoC
+    #Check if the attribute_name is a reference to a collection (user.name)
     def nested?(attribute) #:doc:
       attribute[:name].to_s.match(/\./) ? true : false
     end
     
-    #Convert labels from document.documentbody.TbDoC to document_documentbody_TbDoC
-    #to be humanized
+    #Convert labels from user.name to user_name to be used by meta_search for sorting columns
     def nestize(attribute) #:doc:
       nested?(attribute) ? attribute[:name].to_s.gsub(/\./,"_")  : attribute[:name]
     end

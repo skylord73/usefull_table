@@ -58,16 +58,25 @@ default values in between *
 ===Table
    options[:table][:div_html] =  *{:class => "usefull_table"}*
    options[:table][:header_html] = *{:class => "first_row"}*
-   options[:table][:header_type] = *:sort*   #note: :human if @search not present (no sorting possible)
+   options[:table][:header_type] = 
+    *:sort*   #note: :human if @search not present (no sorting possible)
     :plain    bare column name from ActiveRecord
-    :human  column name humanized by ActiveRecord
+    :human    column name humanized by ActiveRecord
     :nil      no column name
       
 ===Monitor
    options[:monitor][:visible] = *true* | false    #note: false if acts_as_monitor gem is not present or model not extendended
   
 ==Localization
-  Uses standard ActiveRecord localization to render tables and columns names
+Please note the the default locale for the gem is :it
+if you want to change, modify the line:
+  #config/application.rb
+  config.i18n.default_locale = :en
+
+rename and modify the config/locales from *.it.yml to *.en.yml
+
+Uses standard ActiveRecord localization to render tables and columns names
+  it:
    activerecord:
      attributes:
        item:
@@ -83,6 +92,20 @@ default values in between *
          one: User
          other: Users
          ...
-         
-
+  
+  
+  #config/usefull_table.it.yml
+  it:
+    usefull_table:
+      submit_excel: Excel
+      header_error: Errore
+      body_error: Errore
+    
+    icons:
+      show: "usefull_table_show.png"
+      edit: "usefull_table_edit.png"
+      destroy: "usefull_table_destroy.png"
+      download: "usefull_table_download.png" 
+      
+  
 This project rocks and uses MIT-LICENSE.
