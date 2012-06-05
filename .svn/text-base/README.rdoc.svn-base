@@ -40,11 +40,11 @@ in views:
    <% end %>
 
 == Options
-default values in *bold*
+default values in between *
 
 ===Paginator
-   options[:paginator][:visible] = <b>true</b> | false  <em>note</em>: false if @items not present
-   options[:paginator][:class] = <b>"usefull_table_paginator"</b>
+   options[:paginator][:visible] = *true* | false  #note: false if @items not present
+   options[:paginator][:class] = *"usefull_table_paginator"*
       
 ===Container
    options[:html] =  *{:class => "usefull_table_container"}*
@@ -53,18 +53,18 @@ default values in *bold*
    options[:excel][:visible] = *true* | false
    options[:excel][:filter] = *true* | false   _note:_ false if @search not present
    options[:excel][:human] = *true* | false
-   options[:excel][:worksheet] = *object.class.name.gsub(/::/,"#")*  _note:_ class name with namespace separator #
+   options[:excel][:worksheet] = *object.class.name.gsub(/::/,"#")*  #note: class name with namespace separator #
   
 ===Table
    options[:table][:div_html] =  *{:class => "usefull_table"}*
    options[:table][:header_html] = *{:class => "first_row"}*
-   options[:table][:header_type] = *:sort*   _note:_ :human if @search not present (no sorting possible)
-                                                 :plain    bare column name from ActiveRecord
-                                                 :human  column name humanized by ActiveRecord
-                                                 :nil      no column name
+   options[:table][:header_type] = *:sort*   #note: :human if @search not present (no sorting possible)
+    :plain    bare column name from ActiveRecord
+    :human  column name humanized by ActiveRecord
+    :nil      no column name
       
 ===Monitor
-   options[:monitor][:visible] = *true* | false    _note:_ false if acts_as_monitor gem is not present or model not extendended
+   options[:monitor][:visible] = *true* | false    #note: false if acts_as_monitor gem is not present or model not extendended
   
 ==Localization
   Uses standard ActiveRecord localization to render tables and columns names
