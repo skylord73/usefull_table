@@ -1,15 +1,15 @@
 10
 
 dir
-353
+493
 file:///home/svn/svnroot/gems/usefull_table/test/dummy/app/views/home
 file:///home/svn/svnroot/gems
 
 
 
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-05T16:15:02.220599Z
+490
+andrea.bignozzi
 
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2012-06-04T15:07:35.000000Z
-dda8bab106da3b1cd4cae230b7862458
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-05T16:15:02.000000Z
+d4f532aee176e1e3e50905599aef8086
+2012-06-05T16:15:02.220599Z
+490
+andrea.bignozzi
 
 
 
@@ -58,7 +58,7 @@ root
 
 
 
-1031
+981
 
 show.html.erb
 file

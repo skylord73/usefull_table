@@ -1,28 +1,28 @@
-<h1>Home Page Test site</h1>
+<h1>Home Page Test site New</h1>
 
-    <div class = "items_search" >
-      <%= table_for @items, @search, :excel => {:visible => false} do |t| %>
+    <div class = "object_search" >
+      <%= table_for @items, @search do |t| %>
         <% t.show :url => Proc.new {|object| home_path(object.id) } %>
         <% t.col :name %>
         <% t.col "user.name" %>
       <% end %>
     </div>
     
-    <div class = "items" >
+    <div class = "object" >
       <%= table_for @users do |t| %>
         <% t.col :name %>
       <% end %>
     </div>
   
     <div class = "search" >
-      <%= table_for @search, :excel => {:visible => true} do |t| %>
+      <%= table_for @search, :paginator => {:visible => true } do |t| %>
         <% t.col :name %>
         <% t.col "user.name", :url => Proc.new {|object| home_path(object.id) }%>
       <% end %>
     </div>
  
   <div class = "empty" >
-      <%= table_for @empty, :excel => {:visible => true} do |t| %>
+      <%= table_for @empty do |t| %>
         <% t.col :name %>
         <% t.col "user.name", :url => Proc.new {|object| home_path(object.id) }%>
       <% end %>

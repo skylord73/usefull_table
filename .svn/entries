@@ -1,15 +1,15 @@
 10
 
 dir
-353
+493
 file:///home/svn/svnroot/gems/usefull_table
 file:///home/svn/svnroot/gems
 
 
 
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-05T17:02:01.988896Z
+493
+andrea.bignozzi
 
 
 
@@ -106,11 +106,11 @@ file
 
 
 
-2012-06-04T15:07:35.000000Z
-fe531e41095b269d8d98feae3e3f5df9
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-05T17:02:02.000000Z
+eeb826e33d34c752ebe38ee6e0166ede
+2012-06-05T17:02:01.988896Z
+493
+andrea.bignozzi
 
 
 
@@ -132,7 +132,7 @@ root
 
 
 
-56
+2723
 
 .gitignore
 file

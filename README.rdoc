@@ -1,3 +1,86 @@
 = UsefullTable
+table_for generate a full-optionals table, with excel export, columns ordering, links, inline edit and monitoring (ActsAsMonitor gem)
+
+== Setup
+Add this line to your application's Gemfile:
+  gem 'usefull_table'
+  
+then execute
+  $ bundle install
+  
+or install it youurself as:
+  $ sudo gem install usefull_table
+  
+copy icons, javascript and stylesheets:
+  $ rails g usefull_table:install
+  
+==Usage
+
+  #app/controllers/home_controller.rb
+   def index
+     @search = Item.search(params[:search])
+     ...
+     respond_to do |format|
+       format.html { @items = @search.paginate(:page => params[:page]) }
+     end
+     ...
+   end
+   
+   #app/views/home/my_view.html.erb
+   <%= table_for @items, @search, options = {} do |t| %>
+     <% t.show :url => Proc.new { |item| item_path(item)} %>
+     <% t.edit :url => Proc.new { |item| edit_item_path(item)}%>
+     <% t.destroy :url => Proc.new { |item| item_path(item)} %>
+     <% t.download :url => Proc.new { |item| download_item_path(item)} %>
+     <% t.col :name %>
+     <% t.col "user.name" %>
+     <% t.status %>
+   <% end %>
+
+== Options
+default values in *bold*
+
+===Paginator
+   options[:paginator][:visible] = *true* | false  _note_: false if @items not present
+   options[:paginator][:class] = *"usefull_table_paginator"*
+      
+===Container
+   options[:html] =  *{:class => "usefull_table_container"}*
+  
+===Excel
+   options[:excel][:visible] = *true* | false
+   options[:excel][:filter] = *true* | false   _note:_ false if @search not present
+   options[:excel][:human] = *true* | false
+   options[:excel][:worksheet] = *object.class.name.gsub(/::/,"#")*  _note:_ class name with namespace separator #
+  
+===Table
+   options[:table][:div_html] =  *{:class => "usefull_table"}*
+   options[:table][:header_html] = *{:class => "first_row"}*
+   options[:table][:header_type] = *:sort*   _note:_ :human if @search not present (no sorting possible)
+                                                 :plain    bare column name from ActiveRecord
+                                                 :human  column name humanized by ActiveRecord
+                                                 :nil      no column name
+      
+===Monitor
+   options[:monitor][:visible] = *true* | false    _note:_ false if acts_as_monitor gem is not present or model not extendended
+  
+==Localization
+  Uses standard ActiveRecord localization to render tables and columns names
+   activerecord:
+     attributes:
+       item:
+         name: Name
+         type: Type
+       user:
+         name: Name
+     models:
+       item:
+         one: Item
+         other: Items
+       user:
+         one: User
+         other: Users
+         ...
+         
 
 This project rocks and uses MIT-LICENSE.

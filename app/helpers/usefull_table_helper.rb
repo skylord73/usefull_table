@@ -1,115 +1,70 @@
-#Modulo per la gestione delle tabelle
-#si utilizza assieme a meta_search e a will_paginate per rappresentare le tabelle:
-#[documents_controller]
-# def index
-#   @search = Magazzino::Document.where(:Esercizio => user_session.esercizio_user, :Magazzino => user_session.magazzino).search(params[:search])
-#   ...
-#   respond_to do |format|
-#     format.html { @documents = @search.paginate(:page => params[:page]) }
-#     format.xls { send_xls(@search) }
-#   end
-#   ...
-# end
-#
-#[index.html.erb]
-# <%=table_for(@documents,@search, :xls_url => magazzino_documents_path(:format => "xls")) do |t| %>
-#   <% t.show :url => "magazzino_document_path(obj)"%>
-#   <% t.edit :url => "edit_magazzino_document_path(obj)"%>
-#   <% t.col :data, :data_type => :date %>
-#   <% t.col :DoCNr %>
-#   <% t.col :TbDoC %>
-#   <% t.col :Segnalazioni %>
-#   <% t.col :BollaXENrDoC %>
-#   <%# t.col :BollaXEDataDoC %>
-#   <% t.col :DoCSit %>
-#   <% t.col "user_updated.displayname" %>
-# <% end %>
-#
-#Per i vari parametri di configurazione fare riferimento ai vari helper
-#*  #table_for
-#*  #send_xls
-#
-#==Note
-#Nel caso di tabelle generate da sql con select , assicurarsi di includere gli id delle tabelle collegate se si vogliono utilizzare le nested collection:
-# Magazzino::Documentbody.select("ART, DescriArt, product_id").search(params[:search])
-#
-#Mi permette poi nella tabella di rappresentare anche i campi di product:
-# <%=table_for(@documentbodies,@search, :xls_url => @product ? magazzino_product_documentbodies_path(@product, :format => "xls" ) : magazzino_documentbodies_path(:format => "xls")) do |t| %>
-#   <% t.show :url => "magazzino_document_path(obj.document_id)"%>
-#   <% t.col :ART %>
-#   <% t.col :DescriArt %>
-#   <% t.col "product_CodArtFRN %>
-# <% end %>
 module UsefullTableHelper
-  #Permette la realizzazione di una tabella in visualizzazione secondo lo standard previsto
+  #table_for generate a full-optionals table, with excel export, columns ordering, links, inline edit and monitoring (ActsAsMonitor gem)
+  # app/controllers/home_controller.rb
+  # def index
+  #   @search = Item.search(params[:search])
+  #   ...
+  #   respond_to do |format|
+  #     format.html { @items = @search.paginate(:page => params[:page]) }
+  #   end
+  #   ...
+  # end
+  # 
+  # app/views/home/my_view.html.erb
+  # <%= table_for @items, @search, options = {} do |t| %>
+  #   <% t.show :url => Proc.new { |item| item_path(item)} %>
+  #   <% t.edit :url => Proc.new { |item| edit_item_path(item)}%>
+  #   <% t.destroy :url => Proc.new { |item| item_path(item)} %>
+  #   <% t.download :url => Proc.new { |item| download_item_path(item)} %>
+  #   <% t.col :name %>
+  #   <% t.col "user.name" %>
+  #   <% t.status %>
+  # <% end %>
   #
-  #==Prerequisiti
-  #La classe necessita delle seguenti gemme per funzionare
-  #*  meta_search
-  #*  will_paginate
-  #*  acts_as_monitor
+  #=Options
+  #default values in *bold*
   #
-  #==Localizzazione
-  #Utilizza l'albero di localizzazione di ActiveRecord per i nomi delle colonne
+  #==Paginator
+  # options[:paginator][:visible] = *true* | false  _note_: false if @items not present
+  # options[:paginator][:class] = *"usefull_table_paginator"*
+  #    
+  #==Container
+  # options[:html] =  *{:class => "usefull_table_container"}*
+  #
+  #==Excel
+  # options[:excel][:visible] = *true* | false
+  # options[:excel][:filter] = *true* | false   _note:_ false if @search not present
+  # options[:excel][:human] = *true* | false
+  # options[:excel][:worksheet] = *object.class.name.gsub(/::/,"#")*  _note:_ class name with namespace separator #
+  #
+  #==Table
+  # options[:table][:div_html] =  *{:class => "usefull_table"}*
+  # options[:table][:header_html] = *{:class => "first_row"}*
+  # options[:table][:header_type] = *:sort*   _note:_ :human if @search not present (no sorting possible)
+  #                                               :plain    bare column name from ActiveRecord
+  #                                               :human  column name humanized by ActiveRecord
+  #                                               :nil      no column name
+  #    
+  #==Monitor
+  # options[:monitor][:visible] = *true* | false    _note:_ false if acts_as_monitor gem is not present or model not extendended
+  #
+  #=Localization
+  #Uses standard ActiveRecord localization to render tables and columns names
   # activerecord:
   #   attributes:
-  #     magazzino:
-  #       document:
-  #         <nome_campo>: etichetta
-  #         ...
+  #     item:
+  #       name: Name
+  #       type: Type
+  #     user:
+  #       name: Name
+  #   models:
+  #     item:
+  #       one: Item
+  #       other: Items
+  #     user:
+  #       one: User
+  #       other: Users
   #       ...
-  #
-  #I link vengono localizzati utilizzando l'albero:
-  # shared:
-  #   buttons:
-  #     show: "mostra"
-  #     edit: "modifica"
-  #     ...
-  #
-  #==Utilizzo
-  #Si utilizza nelle viste con la seguente sintassi
-  # <%=table_for(@products,@search) do |t| %>
-  #   <% t.show :url => "magazzino_product_path(obj)" %>
-  #   <% t.show :url => "magazzino_product_documentbodies_path(obj)", :label => :show_mov%>
-  #   <% t.col :CodiceArt %>
-  #   <% t.col :DescriArt %>
-  #  <% end %>
-  #
-  #In alternativa si può inizializzzare anche con:
-  # <%=table_for(@search) do |t| %>
-  #
-  #E' necessario passargli l'oggetto da tabellare (@products) e l'oggetto creato da MetaSearch (@search) come parametri obbligatori più un blocco dove è possibile utilizzare i seguenti metodi:
-  #*  col : Crea una normale colonna
-  #*  show, edit, destroy : Crea un link al tipo di url passato come parametro
-  #
-  #===Parametri
-  #====Paginator
-  # :paginator => {
-  #   :visible => true | false (default: true)
-  #   :class => "usefull_table_paginator" 
-  #
-  #====Container (div wrapping table + paginator + excel)
-  # :html => {
-  #   :class => "usefull_table_container"
-  #   }
-  #
-  # :table => nil,      [parametri html del tag <table>]
-  #    :tr_header =>       [parametri html del tag <tr> dell'intestazione]
-  #       {:class => "first_row"},
-  # :paginator => false    [non fa render del blocco will_paginate. Se specificato è
-  #                         necessario esplicitare secondo argomento @search = nil]
-  # @search = nil =>       [fa in modo che option :header_type = :human e quindi viene
-  #                         localizzato da human_attribute_name nell'helper h]
-  #
-  #==XLS
-  #Permette l'esportazione della tabella in un file xls.
-  #Di default l'estrazione contiene solo i campi esposti in tabella e le righe visualizzate (utilizza il filtro attivo)
-  #*  :xls_url => url da contattare per riceve il file, se manca non abilita l'esportazione xls
-  #Passando i seguenti parametri è possibile variarne il comportamento:
-  #*  :xls_filter => false     Restituisce tutti i valori indipendentmente dai filtri
-  #*  :xls_all => true          Restituisce TUTTE le colonne della tabella
-  #*  :xls_human => false     Non umanizza i nomi delle colonne
-  #
   def table_for(obj, *args, &block)
     #Rails::logger.info("table_for START args=#{args.inspect}")
     unless obj.blank?
