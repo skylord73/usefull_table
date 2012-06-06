@@ -10,5 +10,10 @@ class HomeController < ApplicationController
     @item = Item.find(params[:id])
   end
   
-
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to "index"
+  end
+  
 end

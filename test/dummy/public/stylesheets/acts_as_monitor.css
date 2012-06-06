@@ -1,0 +1,48 @@
+.acts_as_monitor_status_window{
+  background-color: #F2F2F2;
+  border: solid black 1px;
+  opacity: 0.9;
+  width: 150px;
+}
+
+.acts_as_monitor_status_window legend{
+  opacity: 1.0;
+  background-color: #F2F2F2;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+  margin-right: 10px;
+  
+}
+
+.acts_as_monitor_status_window h3.acts_as_monitor_errors_title{
+  font-weight: normal;
+  background-color: red;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.acts_as_monitor_status_window h3.acts_as_monitor_warnings_title{
+  font-weight: normal;
+  background-color: #FACC2E;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.acts_as_monitor_status_window ul{
+  margin-left: 10px;
+}
+
+li.acts_as_monitor_list_errors{
+  list-style-image: url('../images/acts_as_monitor_red.png');
+}
+
+li.acts_as_monitor_list_warnings{
+  list-style-image: url('../images/acts_as_monitor_yellow.png');
+}

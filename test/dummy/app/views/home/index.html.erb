@@ -1,35 +1,91 @@
 <h1>Home Page Test site New</h1>
-
     <div class = "object_search" >
+      <h2>Search and Items </h2>
+      <p>table_for @items, @search </p>
       <%= table_for @items, @search do |t| %>
         <% t.show :url => Proc.new {|object| home_path(object.id) } %>
+        <% t.destroy :url => Proc.new {|object| home_path(object.id) } %>
         <% t.col :name %>
         <% t.col "user.name" %>
+        <% t.status %>
       <% end %>
     </div>
     
     <div class = "object" >
+      <h2>Object</h2>
+      <p>table_for @users</p>
       <%= table_for @users do |t| %>
         <% t.col :name %>
+        <% t.status %>
       <% end %>
     </div>
   
     <div class = "search" >
+      <h2>Search</h2>
+      <p>table_for @search, :paginator => {:visible => true }</p>
       <%= table_for @search, :paginator => {:visible => true } do |t| %>
+        <% t.destroy :url => Proc.new {|object| home_path(object.id) } %>
         <% t.col :name %>
         <% t.col "user.name", :url => Proc.new {|object| home_path(object.id) }%>
+        <% t.status %>
       <% end %>
     </div>
  
   <div class = "empty" >
+      <h2>Empty</h2>
+      <p>table_for @empty</p>
       <%= table_for @empty do |t| %>
         <% t.col :name %>
         <% t.col "user.name", :url => Proc.new {|object| home_path(object.id) }%>
+        <% t.status %>
       <% end %>
     </div>
     
-    <div class = "user" >
-      <%= table_for @user, :excel => {:visible => true} do |t| %>
+    <div class = "object_search_no_extras" >
+      <h2>Object, Search with no Extras</h2>
+      <p>table_for @users, @search, :paginator => {:visible => false}, :excel => {:visible => false}, :monitor => {:visible => false}</p>
+      <%= table_for @users, @search, :paginator => {:visible => false}, :excel => {:visible => false}, :monitor => {:visible => false} do |t| %>
+        <% t.show :url => Proc.new {|object| home_path(object.id) } %>
+        <% t.col :name %>
+        <% t.status %>
+      <% end %>
+    </div>
+    
+    <div class = "object_search_no_sort" >
+      <h2>Object, Search non sorting columns</h2>
+      <p>table_for @users, @search, :table => {:header_type => :human}</p>
+      <%= table_for @users, @search, :table => {:header_type => :human} do |t| %>
+        <% t.show :url => Proc.new {|object| home_path(object.id) } %>
+        <% t.col :name %>
+        <% t.status %>
+      <% end %>
+    </div>
+    
+    <div class = "object_search_options" >
+      <h2>Object, Search link options</h2>
+      <p>table_for @users, @search</p>
+      <%= table_for @users, @search do |t| %>
+        <% t.show :url => Proc.new {|object| home_path(object.id) }, :label => "show_custom_label" %>
+        <% t.show :url => Proc.new {|object| home_path(object.id) }, :label => :show, :name => :ininfluent %>
+        <% t.show :url => Proc.new {|object| home_path(object.id) }, :label => :missing_translation %>
+        <% t.link :url => Proc.new {|object| home_path(object.id) }, :name => :custom_text%>
+        <% t.link :url => Proc.new {|object| home_path(object.id) }, :name => :download, :body_type => :icon %>
         <% t.col :name %>
       <% end %>
     </div>
+    
+    <div class = "object_search_options_col" >
+      <h2>Object, Search Column options</h2>
+      <p>table_for @items, @search</p>
+      <%= table_for @items, @search do |t| %>
+        <% t.col :name, :header_type => :sort, :url => Proc.new {|object| home_path(object.id) } %>
+        <% t.col "user.name", :header_type => :human, :url => "/" %>
+        <% t.col :created_at, :header_type => :nil %>
+        <% t.col :created_at, :data_type => :Time, :label => "Time"%>
+        <% t.col :created_at, :data_type => :Date, :label => :show%>
+        <% t.col :money, :data_type => :Currency %>
+        <% t.label ["a",1,1.2], :label => "Array" %>
+        <% t.label Proc.new {|item| item.id * 3}, :label => "Id * 3" %>
+      <% end %>
+    </div>
+    

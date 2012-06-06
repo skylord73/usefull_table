@@ -1,15 +1,15 @@
 10
 
 dir
-496
+643
 file:///home/svn/svnroot/gems/usefull_table/test/dummy/config
 file:///home/svn/svnroot/gems
 
 
 
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-06T14:37:09.173376Z
+622
+andrea.bignozzi
 
 
 
@@ -35,11 +35,11 @@ file
 
 
 
-2012-06-04T15:07:35.000000Z
-a613bb1243a4523bd0bcd5303953fc1d
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-06T09:00:53.000000Z
+4349f42827a4cb8606411ddd988012b1
+2012-06-06T09:00:52.974994Z
+524
+andrea.bignozzi
 
 
 
@@ -61,7 +61,7 @@ root
 
 
 
-1824
+1834
 
 database.yml
 file

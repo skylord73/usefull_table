@@ -1,15 +1,15 @@
 10
 
 dir
-496
+643
 file:///home/svn/svnroot/gems/usefull_table/test/dummy/app/models
 file:///home/svn/svnroot/gems
 
 
 
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-06T14:32:27.567555Z
+620
+andrea.bignozzi
 
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2012-06-04T15:07:35.000000Z
-04b2f5f1a6f9b1ef2433cfdfc296245a
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-06T07:27:26.000000Z
+f6bb4d9e8c50af3b59fd06f8e6308c57
+2012-06-06T07:27:25.951062Z
+497
+andrea.bignozzi
 
 
 
@@ -58,7 +58,7 @@ root
 
 
 
-54
+72
 
 item.rb
 file
@@ -66,11 +66,11 @@ file
 
 
 
-2012-06-04T15:07:35.000000Z
-c6aac48d9e39bfc0c44e0d39f783086a
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-06T14:32:27.000000Z
+d518badb13c060f0c45239188e809e71
+2012-06-06T14:32:27.567555Z
+620
+andrea.bignozzi
 
 
 
@@ -92,5 +92,5 @@ root
 
 
 
-81
+88
 

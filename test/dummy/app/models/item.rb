@@ -1,6 +1,8 @@
 class Item < ActiveRecord::Base
   belongs_to :user
   
-  self.per_page = 2
+  def money
+    12.3
+  end
   
 end

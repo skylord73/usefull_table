@@ -5,3 +5,7 @@ it:
         one: utente
         other: utenti
       item: oggetti
+      
+  home:
+    index:
+      show: "Show I18n"
