@@ -1,6 +1,6 @@
 =UsefullTable
-table_for generate a full-optionals table, with excel export, columns ordering, links, inline edit and monitoring (ActsAsMonitor gem)
-but don't warry because of a rich set of defaults, make its use very simple
+table_for generate a full-optionals table, with excel export, columns ordering, links, inline edit and monitoring (ActsAsMonitor https://github.com/skylord73/acts_as_monitor)
+but don't warry because a rich set of defaults, make its use very simple
 
 for a working sample please refer to test/dummy
 
@@ -49,7 +49,7 @@ and in your view
 default values in *bold*
 
 ===Paginator
-options[:paginator][:visible] = *true* | false  _note_: false if @items not present
+  options[:paginator][:visible] = *true* | false  _note_: false if @items not present
  options[:paginator][:class] = *"usefull_table_paginator"*
     
 ===Container
@@ -60,6 +60,7 @@ options[:paginator][:visible] = *true* | false  _note_: false if @items not pres
  options[:export][:filter] = *true* | false   _note:_ false if @search not present
  options[:export][:human] = *true* | false
  options[:export][:worksheet] = *object.class.name.gsub(/::/,"#")*  _note:_ class name with namespace separator #
+ options[:export][:url] = Custom Url and format
 
 ===Table
  options[:table][:div_html] =  *{:class => "usefull_table"}*
@@ -100,58 +101,134 @@ Uses standard ActiveRecord localization to render tables and columns names
      destroy: "usefull_table_destroy.png"
      download: "usefull_table_download.png" 
 
-=col
+=Column Types
+==col
 Render column value
 
-==Usage
+===Usage
  <% t.col :name %>               #render column :name ( t.col "name" is ok)
  <% t.col "user.name" %>      #render column name of the user collection in item (item.user.name)
 
-==Options
- :header_type =>
-   *:sort*     #Header is MetaSearch#sort_link of columns_name
-   :human      #Header is plain text humanized with ActiveRecord column name
-   :nil          #No header
-   
- :label =>
-   "Custom Name"      #plain text without localization
-   :custom_name        #localized text in lazy context (.)
-   
- :data_type =>     #default get class name from object to render
-   :Date | :Time | :DateTime | :Currency
-   
- :url => "static_path" or Proc       #Proc expose the object instance of the current row
- 
- :inline => true    #default false  enable inline editing for the column, works olso with nested fields
-=label
+===Options
+
+:header_type =>
+- *:sort*     #Header is MetaSearch#sort_link of columns_name
+- :human      #Header is plain text humanized with ActiveRecord column name
+- :nil          #No header
+
+:label =>
+- "Custom Name"      #plain text without localization
+- :custom_name        #localized text in lazy context (.)
+  
+:data_type =>     #default get class name from object to render
+- :Date
+- :Time 
+- :DateTime
+- :Currency
+- :Bool #Transform value in boolean
+- :Bool_reverse #Transform vale in boolean and reverse the vale
+  
+:url =>
+- "static_path"
+- Proc       #Proc expose the object instance of the current row
+
+:inline =>
+- *false*
+- true  #enable inline editing for the column, works also with nested fields (no controller add-on required)
+
+==label
 Render static label
 
-==Usage
+===Usage
  <% t.label object %>               #render object.inspect
  <% t.label Proc.new {|item| item.name.capitalize} %>               #Evaluate proc with item instance of the corresponding row
 
-=monitor
+==monitor
 Render a tri-state icon to monitor model status
 *  Red : Error
 *  Yellow: Warning
 *  Green: Status ok
+
+Enable only if acts_as_monitor gem is required (https://github.com/skylord73/acts_as_monitor)
 
 ==Usage
  <% t.monitor %>
 
 Clicking the icon you get the comlete problem description pushed by Ajaxs script (no page reload)
 
-=link
+==link
 Create a link to something, using Icons or CustomText
-==Usage
+
+===Usage
  <% t.show :url => Proc.new {|object| home_path(object) }"%>
  <% t.destroy :url => Proc.new {|object| home_path(object) }"%>
  <% t.link :name => "Custom Link",  :url => Proc.new {|object| my_link_home_path(object) }"%>    #text link (Custom Link) to url 
  <% t.link :name => "Custom Link",  :body_typ => :icon,  :url => Proc.new {|object| my_link_home_path(object) }"%>    #icon link with icon name = usefull_table_cusom_link.png or localization in usefull_table.icons.custom_link 
 
-==Options
- :url => Proc or string
- :label => :show_doc localized in lazy contest (.)
-               "Show Doc" printed without localization
- :link_options =>  *nil* | {:method => delete, :confirm => "sicuro?"} if name == :destroy
- :name => :symbol or "string"    #if method_name == :link the name is used as link_text (localized if symbol), ignored elsewhere
+===Options
+
+:url => 
+- Proc
+- "my_custom_static_url"
+
+:label => 
+- :show_doc     #localized in lazy contest (.)
+- "Show Doc"    #printed without localization
+
+:link_options =>  
+- *nil*
+- {:method => delete, :confirm => "sicuro?"} if name == :destroy
+
+:name => 
+- :symbol
+- "string"    #if method_name == :link the name is used as link_text (localized if symbol), ignored elsewhere
+
+==bool
+Create a boolean value using images to represent status.
+Images name can be changed in locales
+
+===Usage
+  <% t.bool :name %>
+  <% t.bool :name, :reverse => true%>
+  
+===Options
+:header_type =>
+- *:sort*     #Header is MetaSearch#sort_link of columns_name
+- :human      #Header is plain text humanized with ActiveRecord column name
+- :nil          #No header
+
+:label =>
+- "Custom Name"      #plain text without localization in header
+- :custom_name        #localized text in lazy context (.) in header
+
+:url => 
+- "my_custom_static_url"
+- Proc       #Proc expose the object instance of the current row
+
+:reverse =>
+- *false*
+- true    #reverse boolean value
+
+==Personalization
+
+Feel free to modify the following files:
+
+- public/stylesheets/usefull_table.css
+- config/locales/usefull_table.it.yml
+
+==Contributing
+
+1 Fork it
+2 Create your feature branch (git checkout -b my-new-feature)
+3 Commit your changes (git commit -am 'Added some feature')
+4 Push to the branch (git push origin my-new-feature)
+5 Create new Pull Request
+
+==Thanks
+
+Many thanks to :
+- MetaSearch
+- WillPaginate
+- Spreadsheet
+- Axlsx
+
