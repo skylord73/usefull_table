@@ -5,7 +5,8 @@ ToDo
 - Add option [:export][:type] => :xls, :xlsx, :pdf, :all, [:xls, :xlsx]
 
 BugToFix
-
+1.0.1 (June 29, 2012)
+- First working release
 
 0.1.0 (June 18, 2012)
 - first Release
