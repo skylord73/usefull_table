@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name = "usefull_table"
   s.summary = "Table Helper with Excel export, inline editing and monitoring funxtions"
   s.description = "Table Helper with Excel export, inline editing and monitoring funxtions"
-  s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc"]
+  s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc", "CHANGELOG.md"]
   s.version = UsefullTable::VERSION
   
   s.add_dependency "rails", "3.0.9"
