@@ -2,14 +2,16 @@
 require 'rubygems'
 begin
   require 'bundler/setup'
+  require "bundler/gem_tasks"
 rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
 require 'rake'
-require 'rake/rdoctask'
-
 require 'rake/testtask'
+require 'rdoc/task'
+
+
 
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'

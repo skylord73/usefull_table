@@ -1,12 +1,27 @@
 source "http://rubygems.org"
 
-gem "rails", "3.0.9"
-gem "capybara", ">= 0.4.0"
-gem "sqlite3"
-gem "meta_search"
-gem "will_paginate"
-gem "acts_as_monitor"
+#remove in production
+#gem "acts_as_xls", :path => "/home/apps/rails_apps/gems/acts_as_xls"
+#gem "acts_as_monitor", :path => "/home/apps/rails_apps/gems/acts_as_monitor"
+gem  "rails", "3.0.9"
+#gem "in_place_editing"
 
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-gem 'ruby-debug'
-# gem 'ruby-debug19'
+group :development do
+	gem "acts_as_monitor", :path => "/home/apps/rails_apps/gems/acts_as_monitor"
+  gem "acts_as_xls", :path => "/home/apps/rails_apps/gems/acts_as_xls"
+  gem "meta_search"
+  gem "will_paginate"
+  gem "ruby-debug"
+end
+
+group :test do
+	gem "acts_as_monitor", :path => "/home/apps/rails_apps/gems/acts_as_monitor"
+  gem "acts_as_xls", :path => "/home/apps/rails_apps/gems/acts_as_xls"
+  gem "capybara", ">= 0.4.0"
+  gem "meta_search"
+  gem "will_paginate"
+  gem "ruby-debug"
+end
+
+
+gemspec

@@ -1,5 +1,8 @@
 =UsefullTable
-table_for generate a full-optionals table, with excel export, columns ordering, links, inline edit and monitoring (ActsAsMonitor gem)#but don't warry because of a rich set of defaults, make its use very simple
+table_for generate a full-optionals table, with excel export, columns ordering, links, inline edit and monitoring (ActsAsMonitor gem)
+but don't warry because of a rich set of defaults, make its use very simple
+
+for a working sample please refer to test/dummy
 
 ==Setup
 Add this line to your application's Gemfile:
@@ -13,6 +16,10 @@ or install it yourself as:
 
 copy icons, javascript and stylesheets:
  $ rails g usefull_table:install
+ 
+modify default scaffold to use usefull_table, meta_search and will_paginate (controller and index.html.erb):
+  $ rails g usefull_table:scaffold
+
 
 ==Usage
 Write few lines in your controller
@@ -49,10 +56,10 @@ options[:paginator][:visible] = *true* | false  _note_: false if @items not pres
  options[:html] =  *{:class => "usefull_table_container"}*
 
 ===Excel
- options[:excel][:visible] = *true* | false
- options[:excel][:filter] = *true* | false   _note:_ false if @search not present
- options[:excel][:human] = *true* | false
- options[:excel][:worksheet] = *object.class.name.gsub(/::/,"#")*  _note:_ class name with namespace separator #
+ options[:export][:visible] = *true* | false
+ options[:export][:filter] = *true* | false   _note:_ false if @search not present
+ options[:export][:human] = *true* | false
+ options[:export][:worksheet] = *object.class.name.gsub(/::/,"#")*  _note:_ class name with namespace separator #
 
 ===Table
  options[:table][:div_html] =  *{:class => "usefull_table"}*
@@ -96,7 +103,7 @@ Uses standard ActiveRecord localization to render tables and columns names
 =col
 Render column value
 
-==Usage #col
+==Usage
  <% t.col :name %>               #render column :name ( t.col "name" is ok)
  <% t.col "user.name" %>      #render column name of the user collection in item (item.user.name)
 
@@ -114,6 +121,8 @@ Render column value
    :Date | :Time | :DateTime | :Currency
    
  :url => "static_path" or Proc       #Proc expose the object instance of the current row
+ 
+ :inline => true    #default false  enable inline editing for the column, works olso with nested fields
 =label
 Render static label
 
@@ -127,7 +136,7 @@ Render a tri-state icon to monitor model status
 *  Yellow: Warning
 *  Green: Status ok
 
-#==Usage
+==Usage
  <% t.monitor %>
 
 Clicking the icon you get the comlete problem description pushed by Ajaxs script (no page reload)

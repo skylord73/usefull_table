@@ -75,7 +75,6 @@ class TableForOptionsTest < ActiveSupport::IntegrationCase
     within('div.object_search_options_col div.usefull_table_container div.usefull_table') do
       click_link("pen")
     end
-    puts page.html
     assert page.has_selector?('h', :text => "Show"), "first wrong page"
     assert page.has_selector?('p#id', :text => '3'), "first wrong id"
     

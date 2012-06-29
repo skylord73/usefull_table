@@ -51,11 +51,11 @@ module UsefullTableHelper
   # options[:html] =  *{:class => "usefull_table_container"}*
   #
   #===Excel
-  # options[:excel][:visible] = *true* | false
-  # options[:excel][:filter] = *true* | false   _note:_ false if @search not present
-  # options[:excel][:human] = *true* | false
-  # options[:excel][:worksheet] = *object.class.name.gsub(/::/,"#")*  _note:_ class name with namespace separator #
-  #
+  # options[:export][:visible] = *true* | false
+  # options[:export][:filter] = *true* | false   _note:_ false if @search not present
+  # options[:export][:human] = *true* | false
+  # options[:export][:worksheet] = *object.class.name.gsub(/::/,"#")*  _note:_ class name with namespace separator #
+  # options[:export][:url] = custom url
   #===Table
   # options[:table][:div_html] =  *{:class => "usefull_table"}*
   # options[:table][:header_html] = *{:class => "first_row"}*
@@ -101,46 +101,18 @@ module UsefullTableHelper
       search = args.shift if args[0].kind_of?(MetaSearch::Builder)
       #Rails::logger.info("table_for START(1) search=#{search.inspect}")
       options = args.extract_options!
-      raise CustomErrors::TableBuilders::BlockMissing unless block_given?
+      raise UsefullTable::MissingBlock unless block_given?
       
       if obj.kind_of?(MetaSearch::Builder)
         search = obj
         object = obj.relation
+        search_attributes = search.search_attributes
       else
         object = obj
       end
-      #Rails::logger.info("table_for START options=#{options.inspect}")
-      
-      #Paginator
-      options[:paginator] ||= {}
-      options[:paginator][:visible] = true if options[:paginator][:visible].nil?
-      options[:paginator][:visible] = false if !object.respond_to? :total_pages
-      options[:paginator][:class] = "usefull_table_paginator"
-      
-      #Container
-      options[:html] ||= {:class => "usefull_table_container"}
-      
-      #Excel
-      options[:excel] ||= {}
-      options[:excel][:visible] = true if options[:excel][:visible].nil?
-      options[:excel][:filter] ||= false if search.nil?
-      options[:excel][:human] = true if options[:excel][:human].nil?
-      options[:excel][:worksheet] ||= object.first.class.name.gsub(/::/,"#")
-      
-      #Table
-      options[:table] ||= {}
-      options[:table][:div_html] ||=  {:class => "usefull_table"}
-      options[:table][:header_html] ||= {:class => "first_row"}
-      #Ususally column_type is  :sort, but is search is not present I cannot render a sort_link...
-      options[:table][:header_type] = :human if search.nil?
-      
-      #Monitor
-      options[:monitor] ||= {}
-      options[:monitor][:visible] = object.first.respond_to?(:status_flag) ? true : false
-            
-      Rails::logger.info("table_for POST options=#{options.inspect}")
-            
-      t = TableBuilder.new(object, search, options, self,  &block)
+                 
+      builder = UsefullTable::TableBuilder.new(object, search, options, self,  &block)
+      options = builder.options
       
       out = ""
       out << monitor_tag_js if options[:monitor][:visible] == true
@@ -148,8 +120,8 @@ module UsefullTableHelper
       out << content_tag(:div, options[:html]) do
         ext = ''
         ext << usefull_table_paginator_for(object, options[:paginator])
-        ext << usefull_table_excel_for(t, object, search, options[:excel])
-        ext << usefull_table_for(t, object, search, options[:table])
+        ext << usefull_table_export_for(object,search,builder, options[:export])
+        ext << usefull_table_for(builder, object, search, options[:table])
         ext << usefull_table_paginator_for(object, options[:paginator])
         ext.html_safe
       end
@@ -157,355 +129,32 @@ module UsefullTableHelper
     end
   end
   
-  #Crea un bottone per spedire un xls params[:xls]
-  #[index.html.erb]
-  # xls_tag (array, utility_phone_queue_show_stat_path(@phone_queue_id, :format => "xls"))
+  #Instantiate builder with data info and render arrays for every line
   #
-  #Si accoppia con l'helper da controller:
-  #[phone_queues_controller.rb]
-  # ...
-  # send_xls(params[:xls][:dati])
+  #==Usage
+  #If you can use params to clone an existing table (builder.to_param) and return an array of Arrays
+  # $ array = export_for(@object, @params)
   #
-  def xls_tag(dati, url, method = :get)
-    if dati.kind_of?(Array)
-      form_tag( url , :method => method) do
-        concat hidden_field_tag("xls[data]", dati.to_json)
-        concat submit_tag(t(:xls, :scope => :table))
-      end
-    end
+  #You can build a new table passing a block (see  ::table_for
+  def export_for(object, params = nil, &block)
+    builder = UsefullTable::TableBuilder.new(object, nil, nil, self,  :params => params, &block)
+    builder.to_a
   end
   
-  
-  #Da utilizzarsi nei controller per l'esportazione del file excel
-  # respond_to do |format|
-  #   format.xls { send_xls(@search) }
-  # end
-  #
-  #==Options
-  #*  :file_name permette di specificare un file name diverso 
-  #*  :redirect spcifica un percorso alternativo 
-  #*  params[:xls] viene passato a to_xls
-  #
-  #==Localization
-  # magazzino:
-  #   <nome_controller>:
-  #     file_xls: "%{data}_bolle.xls"
-  #     no_xls: "Nessuna bolla da esportare!"
-  #
-  def send_xls(search, *args)
-    options = args.extract_options!
-    options[:redirect] ||= "index"
-    options[:file_xls] ||= t("file_xls", :data => loc(Time.now.to_date, :format => :file) + "_" + user_session.magazzino, :default => "webgatec") + ".xls"
-  
-    search = search.relation if search.respond_to?(:relation)
-    search = ActiveSupport::JSON.decode(search) if search.kind_of?(String)
-    
-    if search.respond_to?(:to_xls)
-      send_data search.to_xls(params[:xls]), :filename => options[:file_xls] 
-    else
-      flash[:alert] = t("no_xls")
-      redirect_to :html => options[:redirect]
-    end
+  #Draw inline edit field
+  def inline_field(object, id, method, value, id_relation, tag_options = {}, in_place_editor_options = {})
+    Rails::logger.info("table_for#inline_field : oject=#{object.inspect}, method=#{method.inspect}, id=#{id.inspect}")
+    tag_options = { :tag => "span",
+                          :id => "#{object.name.underscore.gsub("/","_")}_#{method}_#{id}_#{id_relation}_in_place_editor",
+                          :class => "in_place_editor_field"}
+    id_relation = id if id_relation.nil?
+    in_place_editor_options[:url] = url_for({:action => "update", :controller=>"usefull_table/table", :id => id_relation})
+    in_place_editor_options[:parameters] = { :class_name => object.name.underscore, :attribute_name => method}
+    tag = content_tag(tag_options.delete(:tag), h(value),tag_options)
+    return tag + in_place_editor(tag_options[:id], in_place_editor_options)
   end
   
-  #Builder as the name suggest builds rows and columns
-  #
-  #
-  #==@data
-  #@data array contains columns data in the form:
-  #[ {column1}, {column2} ...]
-  #where {column} is an hash with the following options:
-  #*  {
-  #*    :nome => column name (ActiveRecord) int the form :column or "collection.column"
-  #*    :type => :column | :link
-  #*    :label =>  "wath you want" | column name if not specified
-  #*    :header_type => :sort | :plain | :human | :nil
-  #*    :body_type => :value (column value) | :plain (wathever you write as column name)
-  class TableBuilder #:doc:
-    DATE = [:date, :datetime]
-    LINK = [:show, :edit, :destroy, :download, :link]
-
-    #Initialize Builder with the following parameters:
-    # @data = [ {column}, .. ]        see #col description
-    # @object => ActiveRecod instance (paginated)
-    # @search => MetaSearch instance
-    # @template => View Contest
-    # @options => options
-    def initialize(object, search, options, template, &block)
-      @data = Array.new
-      @object = object
-      @options = options
-      @search = search
-      @template = template
-      yield(self)
-    end
-
-    #Render table Header
-    def render_header
-      @template.content_tag(:tr, @options[:table][:header_html]) do
-        @data.each do |element|
-          element[:header_type] = :human if @options[:table][:header_type] == :human && element[:header_type] == :sort
-          @template.concat @template.content_tag(:th, header(element))
-        end
-      end
-    end
-    
-    #Render column Header
-    def header(attribute)
-      case attribute[:header_type]
-        when :sort then
-          value = nestize(attribute)
-          @template.sort_link(@search, value)
-        when :plain then
-          localize(attribute[:label])
-        when :human then
-          #UserSession.log("TableHelper#h: object.first.class.human_attribute_name(#{attribute[:label]})")
-          @object.first.class.human_attribute_name(attribute[:label].to_s.gsub(/\./,"_"))
-        when :nil then
-          ""
-        else
-          I18n.t(:Header_error, :scope => :usefull_table, :default => "Header Error")
-      end
-    end
-    
-    #Render table row
-    def render_body
-      out = ""
-      @object.each do |obj|
-        out <<@template.content_tag(:tr, :class => @template.cycle("even","odd")) do
-          @data.each do |element| 
-            @template.concat @template.content_tag(:td, body(obj,element)) 
-          end
-        end
-      end
-      out.html_safe
-    end
-    
-    #Render column body
-    def body(obj, attribute)
-      #Rails::logger.info("TableBuilder#body")
-      case attribute[:type]
-        when :link then
-          attribute_link(obj, attribute)
-        when :column then
-          a = typeize(obj, attribute) unless attribute[:body_type] == :plain
-          #Rails::logger.info("TableBuilder#body a=#{a.inspect}, attribute=#{attribute.inspect}")
-          case attribute[:body_type]
-            when :value
-              a
-            when :link
-              url = attribute[:url].kind_of?(Proc) ? attribute[:url].call(obj) : attribute[:url] 
-              @template.link_to(a, url)
-            when :flag
-              @template.monitor_tag obj 
-            when :plain
-              if attribute[:body].kind_of?(Proc)
-                attribute[:body].call(obj)
-              else
-                attribute[:body].kind_of?(String) ? attribute[:body] : attribute[:body].inspect
-              end
-          end
-      else
-        I18n.t(:body_error, :scope => :usefull_table, :default => "Body Error")
-      end
-    end
-    
-    #Render excel fields
-    def render_excel
-      out = ""
-      @data.each { |d| out << @template.hidden_field_tag('xls[only][]', d[:name]) if d[:type] == :column } unless @options[:excel][:columns] == :all
-      @search.search_attributes.each_pair {|k,v| out << @template.hidden_field_tag("search[#{k}]", v) } unless  @options[:excel][:filter] == false
-      out << @template.hidden_field_tag("xls[human]", false) if @options[:excel][:human] == false
-      out << @template.hidden_field_tag("xls[worksheet]", @options[:excel][:worksheet])
-      out.html_safe
-    end
-    
-    #=col
-    #Render column value
-    #
-    #==Usage #col
-    # <% t.col :name %>               #render column :name ( t.col "name" is ok)
-    # <% t.col "user.name" %>      #render column name of the user collection in item (item.user.name)
-    #
-    #==Options
-    # :header_type =>
-    #   *:sort*     #Header is MetaSearch#sort_link of columns_name
-    #   :human      #Header is plain text humanized with ActiveRecord column name
-    #   :nil          #No header
-    #   
-    # :label =>
-    #   "Custom Name"      #plain text without localization
-    #   :custom_name        #localized text in lazy context (.)
-    #   
-    # :data_type =>     #default get class name from object to render
-    #   :Date | :Time | :DateTime | :Currency
-    #   
-    # :url => "static_path" or Proc       #Proc expose the object instance of the current row
-    def col(attribute, *args)
-      options = args.extract_options!
-      options[:name] = attribute
-      options[:type] = :column
-      options[:header_type] ||= options[:label].nil? ? :sort : :plain
-      options[:body_type] ||= options[:url].blank? ? :value : :link
-      options[:label] ||= attribute
-      @data << options
-    end
-    
-    #=label
-    #Render static label
-    #
-    #==Usage
-    # <% t.label object %>               #render object.inspect
-    # <% t.label Proc.new {|item| item.name.capitalize} %>               #Evaluate proc with item instance of the corresponding row
-    def label(body, *args)
-      options = args.extract_options!
-      options[:name] = :label
-      options[:type] = :column
-      options[:header_type] ||= options[:label].nil? ? :nil : :plain
-      options[:body_type] = :plain
-      options[:body] = body
-      @data << options
-    end
-    
-    #Deprecated
-    def status(*args)
-      Rails::logger.info("TableBuilder#status if deprecated, please use monitor.")
-      monitor(*args)
-    end
-    
-    #=monitor
-    #Render a tri-state icon to monitor model status
-    #*  Red : Error
-    #*  Yellow: Warning
-    #*  Green: Status ok
-    #
-    #==Usage
-    # <% t.monitor %>
-    #
-    #Clicking the icon you get the comlete problem description pushed by Ajaxs script (no page reload)
-    def monitor(*args)
-      options = args.extract_options!
-      options[:name] = :status_flag
-      options[:type] = :column
-      options[:header_type] = :nil
-      options[:body_type] = :flag
-      options[:label] ||= I18n.t(:status_flag, :scope => "activerecord.attributes")
-      @data << options if @options[:monitor][:visible] == true
-    end
-    
-    #=link
-    #Create a link to something, using Icons or CustomText
-    #==Usage
-    # <% t.show :url => Proc.new {|object| home_path(object) }"%>
-    # <% t.destroy :url => Proc.new {|object| home_path(object) }"%>
-    # <% t.link :name => "Custom Link",  :url => Proc.new {|object| my_link_home_path(object) }"%>    #text link (Custom Link) to url 
-    # <% t.link :name => "Custom Link",  :body_typ => :icon,  :url => Proc.new {|object| my_link_home_path(object) }"%>    #icon link with icon name = usefull_table_cusom_link.png or localization in usefull_table.icons.custom_link 
-    #
-    #==Options
-    # :url => Proc or string
-    # :label => :show_doc localized in lazy contest (.)
-    #               "Show Doc" printed without localization
-    # :link_options =>  *nil* | {:method => delete, :confirm => "sicuro?"} if name == :destroy
-    # :name => :symbol or "string"    #if method_name == :link the name is used as link_text (localized if symbol), ignored elsewhere
-    LINK.each do |method_name|
-      define_method method_name do |*args|
-        options = args.extract_options!
-        options[:type] = :link
-        options[:header_type] ||= :nil
-        options[:header_type] = :plain unless options[:label].nil?
-        options[:body_type] ||= method_name == :link ? :link : :icon
-        options[:label] ||= method_name
-        options[:name] = method_name unless method_name == :link && !options[:name].nil?
-        options[:link_options] ||= {:method => :delete, :confirm => I18n.t(:confirm, :scope => "usefull_table", :default => "Are you sure?")} if options[:name] == :destroy
-        raise CustomErrors::TableBuilders::UrlMissing unless options[:url]
-        @data << options
-      end
-    end
-
-    private
-    
-    #Localize if Symbol, print if String
-    def localize(value)
-      value.kind_of?(String) ? value : @template.t(".#{value.to_s}")
-    end
-  
-    #Check if the attribute_name is a reference to a collection (user.name)
-    def nested?(attribute) #:doc:
-      attribute[:name].to_s.match(/\./) ? true : false
-    end
-    
-    #Convert labels from user.name to user_name to be used by meta_search for sorting columns
-    def nestize(attribute) #:doc:
-      nested?(attribute) ? attribute[:name].to_s.gsub(/\./,"_")  : attribute[:name]
-    end
-    
-    #format value using data_type
-    def typeize(obj, attribute) #:doc:
-      #Rails::logger.info("TableBuilder#typeize")
-      type = attribute[:data_type] || attribute_type(obj, attribute[:name])
-      case type
-        when :Date then
-          @template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_date)
-        when :Time then
-          @template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_time )
-        when :DateTime then
-          @template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_datetime)
-        when :Currency then
-          @template.number_to_currency(attribute_value(obj,attribute[:name]))
-      else
-          attribute_value(obj,attribute[:name])
-      end
-    end
-    
-    #Return attribute value if defined blank otherwise
-    def attribute_value(obj, attribute_name)
-      #Rails::logger.info("TableBuilder#attribute_value obj=#{obj.inspect}, attribute=#{attribute_name.inspect}")
-      if safe?(obj, attribute_name) 
-        obj.instance_eval("self." + attribute_name.to_s) if safe?(obj, attribute_name)
-      else
-        ""
-      end
-    end
-    
-    #Return link to url with Icon
-    #==Attributes
-    # :url =>   Proc.new { |object| ...}    #eval with row_instance as contest
-    #             "static_url"
-    # :name =>  :show | :edit | :destroy | :download  used to loaclize icons_name
-    #   /config/locales/usefull_table.it.yml
-    #   it:
-    #     usefull_table:
-    #       icons:
-    #         nane:
-    def attribute_link(obj, attribute)
-      #Rails::logger.info("TableBuilder#attribute_link obj=#{obj.inspect}, attribute=#{attribute.inspect}")
-      url = attribute[:url].kind_of?(Proc) ? attribute[:url].call(obj) : attribute[:url]
-      attribute_name = attribute[:name]
-      icon_name = attribute[:body_type] == :icon ? @template.image_tag(I18n.t(attribute_name.to_s.underscore, :scope => "usefull_table.icons", :defualt => "usefull_table_#{attribute_name.to_s.underscore}.png") ): localize(attribute_name)
-      @template.link_to(icon_name, url, attribute[:link_options])
-    end
-    
-    #Return attribute Type
-    #works evenif the attribute is nested : document.activity.data_prevista => :Date
-    #Time object in Rails is a DateTime object, so it is renamed
-    def attribute_type(obj, attribute_name)
-      #Added self. because of uppercase fileds like Art are misinterprede as Constants...
-      out = obj.instance_eval("self." + attribute_name.to_s + ".class.name.to_sym") if safe?(obj, attribute_name)
-      Rails::logger.info("TableBuilder#attribute_type attribute=#{attribute_name.inspect}, out=#{out.inspect}")
-      out == :Time ? :DateTime : out
-    end
-    
-    #Check if attribute_name return something...
-    # Documentbody.first.safe?("document.activity.customer.nome") => true
-    def safe?(obj, attribute_name)
-      #UserSession.log("TableHelper#safe? attribute_name=#{attribute_name.inspect}, obj=#{obj.inspect}")
-      obj.instance_eval("self." + attribute_name.to_s)
-      true
-    rescue NoMethodError, RuntimeError
-      false
-    end
-    
-  end
+  private 
   
   #==Paginator
   #Add pagination to Table
@@ -526,8 +175,13 @@ module UsefullTableHelper
     end
   end
   
-  #==Excel
+  #==Export
   #Export table content to excel file
+  #
+  #Send to controller the following parameters to rebuild the table in excel format
+  #*  Search filters
+  #*  Columns (@data)
+  #*  Values (evenif calculated locally)
   #===Parameters
   # :excel => {
   #   :visible => true | false       #default: true
@@ -536,15 +190,28 @@ module UsefullTableHelper
   #   :human => true | false       #default: true , Humanize column names
   #   :filter => true | false       #default: true,  export filtered data
   #
-  def usefull_table_excel_for(builder,object, search, options = {})
+  def usefull_table_export_for(object,search,builder,options)
     if options[:visible] == true
-      #Rails::logger.info("table_for#excel_tag")
-      content_tag(:div, :class => "usefull_table_excel") do 
-        form_tag( options[:url] , :method => :get) do
-          builder.render_excel +
-          submit_tag(I18n.t(:submit_excel, :scope => :usefull_table))
+      if options[:search] == true
+        @params = {}
+        @params[:search] = search.search_attributes unless search.blank?
+        @params[:class_name] = object.first.class.name
+        @params[:params] = builder.to_param
+        @params[:paths] = view_paths.map {|path| "#{path.to_path}/#{controller_name}/#{action_name}.xlsx.maker"}
+        #Rails::logger.info("table_for#excel_tag @path=#{self.controller_name}, action=#{action_name}, path=#{view_paths.first.to_path}\n\n")
+        content_tag(:div, :class => options[:class]) do 
+          form_tag( options[:url] , :method => :post) do
+            hidden_field_tag("usefull_table", @params.to_json) + 
+            submit_tag(I18n.t(:submit_excel, :scope => :usefull_table))
+          end
         end
-      end 
+      else
+        content_tag(:div, :class => options[:class]) do 
+          form_tag( options[:url], :method => :get ) do
+            submit_tag(I18n.t(:submit_excel, :scope => :usefull_table))
+          end
+        end
+      end
     else
       #If "" the next div magically disappear...
       "&nbsp"
@@ -569,5 +236,88 @@ module UsefullTableHelper
     end
   end
   
+  def select_path(paths, extension)
+    Rails::logger.info("select_path @path=#{paths.inspect}\n\n")
+    paths.delete_if {|path| !File.exists?(path)}
+    Rails::logger.info("select_path(dopo) @path=#{paths.inspect}\n\n")
+    paths.blank? ? nil : paths.first
+  end
   
+  # Makes an HTML element specified by the DOM ID +field_id+ become an in-place
+  # editor of a property.
+  #
+  # A form is automatically created and displayed when the user clicks the element,
+  # something like this:
+  # <form id="myElement-in-place-edit-form" target="specified url">
+  # <input name="value" text="The content of myElement"/>
+  # <input type="submit" value="ok"/>
+  # <a onclick="javascript to cancel the editing">cancel</a>
+  # </form>
+  #
+  # The form is serialized and sent to the server using an AJAX call, the action on
+  # the server should process the value and return the updated value in the body of
+  # the reponse. The element will automatically be updated with the changed value
+  # (as returned from the server).
+  #
+  # Required +options+ are:
+  # <tt>:url</tt>:: Specifies the url where the updated value should
+  # be sent after the user presses "ok".
+  #
+  # Addtional +options+ are:
+  # <tt>:rows</tt>:: Number of rows (more than 1 will use a TEXTAREA)
+  # <tt>:cols</tt>:: Number of characters the text input should span (works for both INPUT and TEXTAREA)
+  # <tt>:size</tt>:: Synonym for :cols when using a single line text input.
+  # <tt>:cancel_text</tt>:: The text on the cancel link. (default: "cancel")
+  # <tt>:save_text</tt>:: The text on the save link. (default: "ok")
+  # <tt>:loading_text</tt>:: The text to display while the data is being loaded from the server (default: "Loading...")
+  # <tt>:saving_text</tt>:: The text to display when submitting to the server (default: "Saving...")
+  # <tt>:external_control</tt>:: The id of an external control used to enter edit mode.
+  # <tt>:load_text_url</tt>:: URL where initial value of editor (content) is retrieved.
+  # <tt>:options</tt>:: Pass through options to the AJAX call (see prototype's Ajax.Updater)
+  # <tt>:parameters</tt>:: Pass through post
+  # <tt>:with</tt>:: JavaScript snippet that should return what is to be sent
+  # in the AJAX call, +form+ is an implicit parameter
+  # <tt>:script</tt>:: Instructs the in-place editor to evaluate the remote JavaScript response (default: false)
+  # <tt>:click_to_edit_text</tt>::The text shown during mouseover the editable text (default: "Click to edit")
+  def in_place_editor(field_id, options = {})
+    function = "new Ajax.InPlaceEditor("
+    function << "'#{field_id}', "
+    function << "'#{url_for(options[:url])}'"
+
+    js_options = {}
+
+    if protect_against_forgery?
+      options[:with] ||= "Form.serialize(form)"
+      options[:with] += " + '&authenticity_token=' + encodeURIComponent('#{form_authenticity_token}')"
+      options[:parameters].each_pair {|k,v| options[:with] += " + '&#{k.to_s}=' + encodeURIComponent('#{v.to_s}')"} if options[:parameters]
+    end
+    
+    
+
+    js_options['cancelText'] = %('#{options[:cancel_text]}') if options[:cancel_text]
+    js_options['okText'] = %('#{options[:save_text]}') if options[:save_text]
+    js_options['loadingText'] = %('#{options[:loading_text]}') if options[:loading_text]
+    js_options['savingText'] = %('#{options[:saving_text]}') if options[:saving_text]
+    js_options['rows'] = options[:rows] if options[:rows]
+    js_options['cols'] = options[:cols] if options[:cols]
+    js_options['size'] = options[:size] if options[:size]
+    js_options['externalControl'] = "'#{options[:external_control]}'" if options[:external_control]
+    js_options['loadTextURL'] = "'#{url_for(options[:load_text_url])}'" if options[:load_text_url]
+    js_options['ajaxOptions'] = options[:options] if options[:options]
+    js_options['htmlResponse'] = !options[:script] if options[:script]
+    js_options['callback'] = "function(form) { return #{options[:with]} }" if options[:with]
+    js_options['clickToEditText'] = %('#{options[:click_to_edit_text]}') if options[:click_to_edit_text]
+    js_options['textBetweenControls'] = %('#{options[:text_between_controls]}') if options[:text_between_controls]
+    js_options['onComplete'] = %('#{options[:on_complete]}') if options[:on_complete]
+    js_options['onFailure'] = %('#{options[:on_failure]}') if options[:on_failure]
+    function << (', ' + options_for_javascript(js_options)) unless js_options.empty?
+    
+    function << ')'
+
+    javascript_tag(function)
+  end
+  
+  
+  
+   
 end

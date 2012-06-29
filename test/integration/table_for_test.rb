@@ -8,7 +8,7 @@ class TableForTest < ActiveSupport::IntegrationCase
     within('div.object_search') do
       within('div.usefull_table_container') do
         assert page.has_selector?('div.usefull_table_paginator', :count => 2), "Paginators"
-        assert page.has_selector?('div.usefull_table_excel'), "Excel"
+        assert page.has_selector?('div.usefull_table_export'), "Export"
         assert page.has_selector?('div.usefull_table'), "Table"
       end
     end
@@ -20,7 +20,7 @@ class TableForTest < ActiveSupport::IntegrationCase
     within('div.object') do
       within('div.usefull_table_container') do
         assert page.has_selector?('div.usefull_table_paginator', :count => 2), "Paginators"
-        assert page.has_selector?('div.usefull_table_excel'), "Excel"
+        assert page.has_selector?('div.usefull_table_export'), "Export"
         assert page.has_selector?('div.usefull_table'), "Table"
       end
     end
@@ -32,7 +32,7 @@ class TableForTest < ActiveSupport::IntegrationCase
     within('div.search') do
       within('div.usefull_table_container') do
         assert page.has_no_selector?('div.usefull_table_paginator', :count => 2), "Paginators"
-        assert page.has_selector?('div.usefull_table_excel'), "Excel"
+        assert page.has_selector?('div.usefull_table_export'), "Export"
         assert page.has_selector?('div.usefull_table'), "Table"
       end
     end
@@ -73,13 +73,13 @@ class TableForTest < ActiveSupport::IntegrationCase
     end
   end
   
-  test "table_for with no extrase (excel, paginator, monitor)" do
+  test "table_for with no extrase (Export, paginator, monitor)" do
     visit root_path
     #assert page.has_css?('div.object_search div.usefull_table_container'), "Container out"
     within('div.object_search_no_extras') do
       within('div.usefull_table_container') do
         assert page.has_no_selector?('div.usefull_table_paginator'), "Paginators"
-        assert page.has_no_selector?('div.usefull_table_excel'), "Excel"
+        assert page.has_no_selector?('div.usefull_table_export'), "Export"
         assert page.has_selector?('div.usefull_table'), "Table"
       end
     end

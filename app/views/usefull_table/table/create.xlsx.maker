@@ -1,0 +1,17 @@
+#You have package = AXLSX::Package.new exposed
+
+#Configuring Styles
+
+excel = export_for(@object, @params)
+
+package.workbook do |wb|
+  styles = wb.styles
+  title = styles.add_style(:b => true)
+  
+  wb.add_worksheet do |sheet|
+    sheet.add_row excel.shift, :style => title
+    excel.each do |row|
+      sheet.add_row row
+    end
+  end
+end

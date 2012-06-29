@@ -1,0 +1,15 @@
+<h1>Listing <%= plural_table_name %></h1>
+
+<%%= table_for @<%= plural_table_name %>, @search do |t| %>
+  <%% t.status %>
+  <%% t.show :url => Proc.new {|<%= singular_table_name %>| <%= singular_table_name %> } %>
+  <%% t.edit :url => Proc.new {|<%= singular_table_name %>| edit_<%= singular_table_name %>_path(<%= singular_table_name %>) } %>
+  <%% t.destroy :url => Proc.new {|<%= singular_table_name %>| <%= singular_table_name %> } %>
+  <% attributes.each do |attribute| -%>
+    <%% t.col :<%= attribute.name %> %>
+  <% end -%>
+<%% end %>
+
+
+
+<%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path %>

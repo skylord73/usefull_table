@@ -6,6 +6,13 @@ it:
     body_error: Errore
     confirm: "Sei sicuro?"
     
+  #Localize monitor flag when exporting to_a (xlsx, xls, pdf)
+    monitor:
+      green: Ok
+      yellow: Problemi
+      red: Errori
+      title: "Stato"
+    
     icons:
       show: "usefull_table_show.png"
       edit: "usefull_table_edit.png"

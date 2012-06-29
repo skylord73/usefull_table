@@ -1,15 +1,15 @@
 10
 
 dir
-644
+1368
 file:///home/svn/svnroot/gems/usefull_table/lib/usefull_table
 file:///home/svn/svnroot/gems
 
 
 
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-29T16:03:31.795438Z
+1368
+andrea.bignozzi
 
 
 
@@ -26,17 +26,51 @@ root
 
 4397c0ba-9d7e-4ca9-901f-0c36bd93c2fd
 
+table_builder.rb
+file
+
+
+
+
+2012-06-29T09:57:37.000000Z
+405b6e1a2a896f13d9ea0759868a4fba
+2012-06-29T09:57:37.789827Z
+1314
+andrea.bignozzi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+21059
+
 exceptions.rb
 file
 
 
 
 
-2012-06-04T15:07:35.000000Z
-3f6c823976b0c3eced60dd506c763a63
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-20T11:23:15.000000Z
+044d37b4f1eecc0e8aca38b3a3531486
+2012-06-20T11:23:15.425266Z
+940
+andrea.bignozzi
 
 
 
@@ -58,7 +92,7 @@ root
 
 
 
-72
+513
 
 engine.rb
 file
@@ -66,11 +100,11 @@ file
 
 
 
-2012-06-04T15:07:35.000000Z
-a38ec862b4eeaafa42749d5e86330374
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-19T13:01:04.000000Z
+49f2736ca1beb08483233eddb0ee5bbb
+2012-06-19T13:01:03.874763Z
+823
+andrea.bignozzi
 
 
 
@@ -92,7 +126,7 @@ root
 
 
 
-314
+378
 
 version.rb
 file
@@ -100,11 +134,11 @@ file
 
 
 
-2012-06-04T15:07:35.000000Z
-7daeead4aaa3428e2fb6527cae61c997
-2012-06-04T15:08:14.013276Z
-353
-root
+2012-06-29T16:03:31.000000Z
+61a224cd28bfc5e9f77c1f3d2d162eee
+2012-06-29T16:03:31.795438Z
+1368
+andrea.bignozzi
 
 
 

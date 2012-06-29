@@ -24,7 +24,7 @@
       <h2>Search</h2>
       <p>table_for @search, :paginator => {:visible => true }</p>
       <%= table_for @search, :paginator => {:visible => true } do |t| %>
-        <% t.destroy :url => Proc.new {|object| home_path(object.id) } %>
+        <% t.destroy :url => Proc.new {|object| home_path(object) } %>
         <% t.col :name %>
         <% t.col "user.name", :url => Proc.new {|object| home_path(object.id) }%>
         <% t.status %>
@@ -43,8 +43,8 @@
     
     <div class = "object_search_no_extras" >
       <h2>Object, Search with no Extras</h2>
-      <p>table_for @users, @search, :paginator => {:visible => false}, :excel => {:visible => false}, :monitor => {:visible => false}</p>
-      <%= table_for @users, @search, :paginator => {:visible => false}, :excel => {:visible => false}, :monitor => {:visible => false} do |t| %>
+      <p>table_for @users, @search, :paginator => {:visible => false}, :export => {:visible => false}, :monitor => {:visible => false}</p>
+      <%= table_for @users, @search, :paginator => {:visible => false}, :export => {:visible => false}, :monitor => {:visible => false} do |t| %>
         <% t.show :url => Proc.new {|object| home_path(object.id) } %>
         <% t.col :name %>
         <% t.status %>
@@ -86,6 +86,24 @@
         <% t.col :money, :data_type => :Currency %>
         <% t.label ["a",1,1.2], :label => "Array" %>
         <% t.label Proc.new {|item| item.id * 3}, :label => "Id * 3" %>
+        <% t.monitor %>
+        <% t.show :url => Proc.new {|object| home_path(object.id) }, :label => "show_custom_label" %>
       <% end %>
     </div>
+    
+    <div class = "object_search_options_col_inline" >
+      <h2>Object, Search Column Inline</h2>
+      <p>table_for @items, @search</p>
+      <%= table_for @items, @search do |t| %>
+        <% t.col :name, :header_type => :sort, :url => Proc.new {|object| home_path(object.id) }, :inline => true %>
+        <% t.col :name, :inline => true %>
+        <% t.bool :name %>
+        <% t.bool :name, :reverse => true, :label => "Name_reverse" %>
+        <% t.col "user.name", :inline => true %>
+        <% t.label ["a",1,1.2], :label => "Array", :inline => true %>
+        <% t.show :url => Proc.new {|object| home_path(object.id) }, :label => "show_custom_label", :unline => true %>
+      <% end %>
+    </div>
+    
+    
     

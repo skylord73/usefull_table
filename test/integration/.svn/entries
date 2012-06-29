@@ -1,14 +1,14 @@
 10
 
 dir
-644
+1368
 file:///home/svn/svnroot/gems/usefull_table/test/integration
 file:///home/svn/svnroot/gems
 
 
 
-2012-06-06T16:12:11.214225Z
-642
+2012-06-27T17:18:56.075523Z
+1233
 andrea.bignozzi
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2012-06-06T16:12:11.000000Z
-088a050fef00b46294ecde85b8b0bb1e
-2012-06-06T16:12:11.214225Z
-642
+2012-06-06T16:47:20.000000Z
+95e7f26731b7e963e4adeec0345b87f1
+2012-06-06T16:47:20.923926Z
+645
 andrea.bignozzi
 
 
@@ -58,7 +58,7 @@ andrea.bignozzi
 
 
 
-3720
+3701
 
 table_for_test.rb
 file
@@ -66,10 +66,10 @@ file
 
 
 
-2012-06-06T09:58:55.000000Z
-6ac31e3790d4ff899089ac82f334bfac
-2012-06-06T09:58:55.242159Z
-538
+2012-06-27T17:18:56.000000Z
+1fe5fa77d5a0534159bd5aecf30335e7
+2012-06-27T17:18:56.075523Z
+1233
 andrea.bignozzi
 
 
@@ -92,5 +92,5 @@ andrea.bignozzi
 
 
 
-4255
+4264
 

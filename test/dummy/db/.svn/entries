@@ -1,15 +1,15 @@
 10
 
 dir
-644
+1368
 file:///home/svn/svnroot/gems/usefull_table/test/dummy/db
 file:///home/svn/svnroot/gems
 
 
 
-2012-06-05T15:39:58.813997Z
-475
-andrea.bignozzi
+2012-06-07T08:19:54.464606Z
+659
+root
 
 
 
@@ -66,11 +66,11 @@ file
 
 
 
-2012-06-05T15:39:58.000000Z
-949c8a69731ed1f841d7039c900dae3c
-2012-06-05T15:39:58.813997Z
-475
-andrea.bignozzi
+2012-06-06T13:42:39.000000Z
+2fefe923cffb499fdaac63006de5f251
+2012-06-07T08:19:54.464606Z
+659
+root
 has-props
 
 
@@ -100,10 +100,10 @@ file
 
 
 
-2012-06-04T15:07:35.000000Z
-949c8a69731ed1f841d7039c900dae3c
-2012-06-04T15:08:14.013276Z
-353
+2012-06-06T09:38:05.000000Z
+2fefe923cffb499fdaac63006de5f251
+2012-06-07T08:19:54.464606Z
+659
 root
 has-props
 
