@@ -3,10 +3,16 @@
 require File.expand_path('../lib/usefull_table/version', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name = "usefull_table"
-  s.summary = "Table Helper with Excel export, inline editing and monitoring funxtions"
+  s.authors        = ["Andrea Bignozzi"]
+  s.email            = ["skylord73@gmail.com"]
   s.description = "Table Helper with Excel export, inline editing and monitoring funxtions"
+  s.summary = "Table Helper with Excel export, inline editing and monitoring funxtions"
+  
   s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc", "CHANGELOG.md"]
+  s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  s.test_files      = s.files.grep(%r{^(test|spec|features)/})
+  s.name = "usefull_table"
+  s.require_paths   = ["lib"]
   s.version = UsefullTable::VERSION
   
   s.add_dependency "rails", "3.0.9"
