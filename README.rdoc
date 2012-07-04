@@ -1,6 +1,6 @@
 =UsefullTable
-table_for generate a full-optionals table, with excel export, columns ordering, links, inline edit and monitoring (ActsAsMonitor https://github.com/skylord73/acts_as_monitor)
-but don't warry because a rich set of defaults, make its use very simple
+table_for generate a full-optionals table, with excel export, columns ordering, links, inline editing and monitoring (ActsAsMonitor https://github.com/skylord73/acts_as_monitor)
+but don't warry because a rich set of defaults, make its use very simple!
 
 for a working sample please refer to test/dummy
 
