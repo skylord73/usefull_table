@@ -166,7 +166,6 @@ Create a link to something, using Icons or CustomText
  <% t.link :name => "Custom Link",  :body_typ => :icon,  :url => Proc.new {|object| my_link_home_path(object) }"%>    #icon link with icon name = usefull_table_cusom_link.png or localization in usefull_table.icons.custom_link 
 
 ===Options
-
 :url => 
 - Proc
 - "my_custom_static_url"
