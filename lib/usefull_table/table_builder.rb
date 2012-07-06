@@ -375,7 +375,7 @@ module UsefullTable
               out_html = attribute_inline(obj,attribute,a) if attribute[:inline] == true
             when :link
               #url = attribute[:url].kind_of?(Proc) ? attribute[:url].call(obj) : attribute[:url] 
-              Rails::logger.info("TableBuilder#body a=#{a.inspect}, item=#{obj.BollaXENrDoC} or #{obj.activity.id}, id_bolla=#{obj.id}, attribute=#{attribute.inspect}")
+              #Rails::logger.info("TableBuilder#body a=#{a.inspect}, item=#{obj.BollaXENrDoC} or #{obj.activity.id}, id_bolla=#{obj.id}, attribute=#{attribute.inspect}")
               out_html = a.blank? ? a : @template.link_to(a, attribute[:url].kind_of?(Proc) ? attribute[:url].call(obj) : attribute[:url] )
               #out_html = @template.link_to(a, url)
             when :flag
