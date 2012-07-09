@@ -3,6 +3,7 @@ ToDo
 - Add tip to cell
 - Add option :excel => false to column to remove from excel export
 - Add option [:export][:type] => :xls, :xlsx, :pdf, :all, [:xls, :xlsx]
+- Add option [:export][:table] => true to have a backup of the table
 
 BugToFix
 1.0.1 (June 29, 2012)
