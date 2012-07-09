@@ -201,7 +201,7 @@ module UsefullTable
     # <% t.show :url => Proc.new {|object| home_path(object) }"%>
     # <% t.destroy :url => Proc.new {|object| home_path(object) }"%>
     # <% t.link :name => "Custom Link",  :url => Proc.new {|object| my_link_home_path(object) }"%>    #text link (Custom Link) to url 
-    # <% t.link :name => "Custom Link",  :body_typ => :icon,  :url => Proc.new {|object| my_link_home_path(object) }"%>    #icon link with icon name = usefull_table_cusom_link.png or localization in usefull_table.icons.custom_link 
+    # <% t.link :name =>"Custom Link",  :body_type => :icon,  :url => Proc.new {|object| my_link_home_path(object) }"%>    #icon link with icon name = usefull_table_cusom_link.png or localization in usefull_table.icons.custom_link 
     #
     #==Options
     # :url => Proc or string
