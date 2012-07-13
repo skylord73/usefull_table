@@ -8,13 +8,13 @@ PATH
 PATH
   remote: /home/www/gems/acts_as_monitor
   specs:
-    acts_as_monitor (1.0.1)
+    acts_as_monitor (1.0.2)
       rails (= 3.0.14)
 
 PATH
   remote: /home/www/gems/acts_as_xls
   specs:
-    acts_as_xls (1.0.2)
+    acts_as_xls (1.0.3)
       axlsx
       rails (= 3.0.14)
       spreadsheet
