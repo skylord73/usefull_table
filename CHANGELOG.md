@@ -4,7 +4,10 @@ ToDo
 - Add option :excel => false to column to remove from excel export
 - Add option [:export][:type] => :xls, :xlsx, :pdf, :all, [:xls, :xlsx]
 - Add option [:export][:table] => true to have a backup of the table
-- Bug: link :name=> "pippo", body_type => icon, :url => "my_url" do not render default icons if not passed in yml
+- Add :if => Proc.new to condition column presence
+
+BugToFix
+- : link :name=> "pippo", body_type => icon, :url => "my_url" do not render default icons if not passed in yml
 
 BugToFix
 1.0.1 (June 29, 2012)
