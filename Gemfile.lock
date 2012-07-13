@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    usefull_table (1.0.1)
+    usefull_table (1.0.2)
       acts_as_xls
       rails (= 3.0.14)
 
