@@ -10,6 +10,9 @@ BugToFix
 - : link :name=> "pippo", body_type => icon, :url => "my_url" do not render default icons if not passed in yml
 
 BugToFix
+1.0.2 (July 13, 2012)
+- Update to Rails 3.0.14
+
 1.0.1 (June 29, 2012)
 - First working release
 
