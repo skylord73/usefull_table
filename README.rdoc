@@ -230,4 +230,3 @@ Many thanks to :
 - WillPaginate
 - Spreadsheet
 - Axlsx
-
