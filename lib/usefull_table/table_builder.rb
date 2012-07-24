@@ -424,7 +424,7 @@ module UsefullTable
         when :DateTime then
           @template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_datetime)
         when :Currency then
-          @template.number_to_currency(attribute_value(obj,attribute[:name]))
+          @template.number_to_currency(currency_attribute_value(obj,attribute[:name]))
         when :Bool then
           true_values.include?(attribute_value(obj,attribute[:name])) ? true : false
         when :Bool_reverse then
@@ -443,6 +443,12 @@ module UsefullTable
         ""
       end
     end
+    
+    #return attribute value if defined, 0.0 otherwise
+    def currency_attribute_value(obj, attribute_name)
+      attribute_value(obj, attribute_name).blank? ? 0.0 : attribute_value(obj, attribute_name)
+    end
+    
     
     #Render in_place_editor
     #
