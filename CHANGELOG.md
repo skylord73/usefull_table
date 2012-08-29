@@ -7,7 +7,8 @@ ToDo
 - Add :if => Proc.new to condition column presence
 
 BugToFix
-- : link :name=> "pippo", body_type => icon, :url => "my_url" do not render default icons if not passed in yml
+- link :name=> "pippo", body_type => icon, :url => "my_url" do not render default icons if not passed in yml
+- Export: currency column must not be renderered as string
 
 1.0.5
 - If Currency column is nil, must output 0 currency formatted
