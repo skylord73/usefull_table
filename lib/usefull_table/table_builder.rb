@@ -342,6 +342,7 @@ module UsefullTable
         when :human then
           #UserSession.log("TableHelper#h: object.first.class.human_attribute_name(#{attribute[:label]})")
           out_html = out = @object.first.class.human_attribute_name(attribute[:label].to_s.gsub(/\./,"_"))
+          #out_html = out = @object.first.class.human_attribute_name(attribute[:label])
         when :nil then
           out_html = out = ""
         else
