@@ -426,7 +426,7 @@ module UsefullTable
         when :Currency then
           @template.number_to_currency(currency_attribute_value(obj,attribute[:name]))
         when :Percentage then
-          @template.number_to_percentage(percentage_attribute_value(obj,attribute[:name]))
+          @template.number_to_percentage(percentage_attribute_value(obj,attribute[:name]), :precision => 0)
         when :Bool then
           true_values.include?(attribute_value(obj,attribute[:name])) ? true : false
         when :Bool_reverse then
