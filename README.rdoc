@@ -126,6 +126,7 @@ Render column value
 - :Time 
 - :DateTime
 - :Currency
+- :Percentage #transform float number in percentage
 - :Bool #Transform value in boolean
 - :Bool_reverse #Transform vale in boolean and reverse the vale
   

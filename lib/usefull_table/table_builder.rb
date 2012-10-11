@@ -425,6 +425,8 @@ module UsefullTable
           @template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_datetime)
         when :Currency then
           @template.number_to_currency(currency_attribute_value(obj,attribute[:name]))
+        when :Percentage then
+          @template.number_to_percentage(percentage_attribute_value(obj,attribute[:name]))
         when :Bool then
           true_values.include?(attribute_value(obj,attribute[:name])) ? true : false
         when :Bool_reverse then
@@ -447,6 +449,11 @@ module UsefullTable
     #return attribute value if defined, 0.0 otherwise
     def currency_attribute_value(obj, attribute_name)
       attribute_value(obj, attribute_name).blank? ? 0.0 : attribute_value(obj, attribute_name)
+    end
+    
+    #return attribute value if defined, 0 otherwise
+    def percentage_attribute_value(obj, attribute_name)
+      attribute_value(obj, attribute_name).blank? ? 0.0 : attribute_value(obj, attribute_name) * 100
     end
     
     
