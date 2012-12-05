@@ -11,9 +11,9 @@ module UsefullTable
   #*  {
   #*    :nome => column name (ActiveRecord) int the form :column or "collection.column"
   #*    :type => :column | :link
-  #*    :label =>  "wath you want" | column name if not specified
+  #*    :label =>  "what you want" | column name if not specified
   #*    :header_type => :sort | :plain | :human | :nil
-  #*    :body_type => :value (column value) | :plain (wathever you write as column name)
+  #*    :body_type => :value (column value) | :plain (whatever you write as column name)
   class TableBuilder
     DATE = [:date, :datetime]
     LINK = [:show, :edit, :destroy, :download, :link]
@@ -38,7 +38,7 @@ module UsefullTable
       @template = template
       
       if options[:params]
-        #debugger
+        debugger
         @data = _decode_hash(options[:params][:data]).map{|e| e.with_indifferent_access } if options[:params][:data].present?
         opt = _decode_hash(options[:params][:options]).with_indifferent_access
       else
