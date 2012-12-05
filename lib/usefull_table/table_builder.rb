@@ -510,7 +510,7 @@ module UsefullTable
       icon_name = attribute[:body_type] == :icon ? @template.image_tag(I18n.t(attribute_name.to_s.underscore, :scope => "usefull_table.icons", :defualt => "usefull_table_#{attribute_name.to_s.underscore}.png") ): localize(attribute_name)
       @template.link_to(icon_name, url, attribute[:link_options])
     end
-    
+
     #Return attribute Type
     #works evenif the attribute is nested : document.activity.data_prevista => :Date
     #Time object in Rails is a DateTime object, so it is renamed
