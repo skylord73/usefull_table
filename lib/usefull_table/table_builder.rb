@@ -38,7 +38,7 @@ module UsefullTable
       @template = template
       
       if options[:params]
-        debugger
+        #debugger
         @data = _decode_hash(options[:params][:data]).map{|e| e.with_indifferent_access } if options[:params][:data].present?
         opt = _decode_hash(options[:params][:options]).with_indifferent_access
       else
