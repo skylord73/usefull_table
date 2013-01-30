@@ -139,7 +139,8 @@ Render column value
 - true  #enable inline editing for the column, works also with nested fields (no controller add-on required)
 
 ==label
-Render static label
+- Render static label
+- <% t.label Proc.new {|item| item.id * 3}, :label => "Id * 3" %>
 
 ===Usage
  <% t.label object %>               #render object.inspect
