@@ -137,8 +137,12 @@ module UsefullTableHelper
   #
   #You can build a new table passing a block (see  ::table_for
   def export_for(object, params = nil, &block)
-    builder = UsefullTable::TableBuilder.new(object, nil, nil, self,  :params => params, &block)
-    builder.to_a
+    unless obj.blank?
+      builder = UsefullTable::TableBuilder.new(object, nil, nil, self,  :params => params, &block)
+      builder.to_a
+    else
+      []
+    end
   end
   
   #Draw inline edit field
