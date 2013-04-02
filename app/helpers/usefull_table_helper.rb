@@ -1,7 +1,7 @@
 module UsefullTableHelper
   #=UsefullTable
   #table_for generate a full-optionals table, with excel export, columns ordering, links, inline edit and monitoring (ActsAsMonitor gem)
-  #but don't warry because of a rich set of defaults, make its use very simple
+  #but don't worry because of a rich set of defaults makes it very simple to use.
   #
   #==Setup
   #Add this line to your application's Gemfile:
