@@ -240,6 +240,8 @@ module UsefullTableHelper
     end
   end
   
+  #Return the first valid path af an xlsx.maker
+  #if nil default is used.
   def select_path(paths, extension)
     Rails::logger.info("select_path @path=#{paths.inspect}\n\n")
     paths.delete_if {|path| !File.exists?(path)}

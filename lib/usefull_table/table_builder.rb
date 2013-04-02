@@ -419,11 +419,14 @@ module UsefullTable
       true_values = [1, true, "vero", "true", "yes", "si", "s"]
       case type
         when :Date then
-          @template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_date)
+          #@template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_date)
+          l(attribute_value(obj,attribute[:name]), :format => :usefull_table_date)
         when :Time then
-          @template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_time )
+          #@template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_time )
+          l(attribute_value(obj,attribute[:name]), :format => :usefull_table_time )
         when :DateTime then
-          @template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_datetime)
+          #@template.l(attribute_value(obj,attribute[:name]), :format => :usefull_table_datetime)
+          l(attribute_value(obj,attribute[:name]), :format => :usefull_table_datetime)
         when :Currency then
           @template.number_to_currency(currency_attribute_value(obj,attribute[:name]))
         when :Percentage then
@@ -435,6 +438,11 @@ module UsefullTable
       else
           attribute_value(obj,attribute[:name])
       end
+    end
+    
+    #Localize Times, Dates, etc.. and return "" if blank?
+    def l(value, *args)
+      value.blank? ? "" : @template.l(value, *args)
     end
     
     #Return attribute value if defined blank otherwise
