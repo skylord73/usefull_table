@@ -118,7 +118,7 @@ module UsefullTable
       options[:header_type] ||= options[:label].nil? ? :sort : :plain
       options[:body_type] ||= options[:url].blank? ? :value : :link
       options[:label] ||= attribute
-      options[:td_html] ||= "style=boh:2;"
+      options[:td_html] ||= ''
       @data << options
     end
     
