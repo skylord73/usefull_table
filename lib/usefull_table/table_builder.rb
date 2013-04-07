@@ -323,7 +323,7 @@ module UsefullTable
           @data.each do |element| 
             b = body(obj,element)
             row << b[:plain]
-            @template.concat @template.content_tag(:td, b[:html]) 
+            @template.concat @template.content_tag(:td, b[:html],b[:td_html]) 
           end
         end
         @excel << row.compact
@@ -395,9 +395,8 @@ module UsefullTable
           end
       else
         out_html = out = I18n.t(:body_error, :scope => :usefull_table, :default => "Body Error")
-        out_html << attribute[:td_html] if attribute[:td_html]
       end
-      {:html => out_html.to_s.html_safe, :plain =>  out}
+      {:html => out_html.to_s.html_safe, :plain =>  out, :td_html => attribute[:td_html]}
     end
     
     
