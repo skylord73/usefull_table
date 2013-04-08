@@ -9,11 +9,13 @@ module UsefullTable
   #[ {column1}, {column2} ...]
   #where {column} is an hash with the following options:
   #*  {
-  #*    :nome => column name (ActiveRecord) int the form :column or "collection.column"
+  #*    :nome => column name (ActiveRecord) in the form :column or "collection.column"
   #*    :type => :column | :link
   #*    :label =>  "what you want" | column name if not specified
   #*    :header_type => :sort | :plain | :human | :nil
   #*    :body_type => :value (column value) | :plain (whatever you write as column name)
+  #*    :td_html => html <td> tag attributes
+  #*  }
   class TableBuilder
     DATE = [:date, :datetime]
     LINK = [:show, :edit, :destroy, :download, :link]
@@ -116,6 +118,7 @@ module UsefullTable
       options[:header_type] ||= options[:label].nil? ? :sort : :plain
       options[:body_type] ||= options[:url].blank? ? :value : :link
       options[:label] ||= attribute
+      options[:td_html] ||= ''
       @data << options
     end
     
@@ -320,7 +323,7 @@ module UsefullTable
           @data.each do |element| 
             b = body(obj,element)
             row << b[:plain]
-            @template.concat @template.content_tag(:td, b[:html]) 
+            @template.concat @template.content_tag(:td, b[:html],b[:td_html]) 
           end
         end
         @excel << row.compact
@@ -393,7 +396,7 @@ module UsefullTable
       else
         out_html = out = I18n.t(:body_error, :scope => :usefull_table, :default => "Body Error")
       end
-      {:html => out_html.to_s.html_safe, :plain =>  out}
+      {:html => out_html.to_s.html_safe, :plain =>  out, :td_html => attribute[:td_html]}
     end
     
     
