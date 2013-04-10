@@ -288,7 +288,7 @@ module UsefullTable
       
       #Table
       @options[:table] ||= {}
-      @options[:table][:div_html] ||=  {:class => "usefull_table"}
+      @options[:table][:div_html] ||=  {:class => "usefull_table span-24"}
       @options[:table][:header_html] ||= {:class => "first_row"}
       #Ususally column_type is  :sort, but is search is not present I cannot render a sort_link...
       @options[:table][:header_type] = :human if @search.nil?
