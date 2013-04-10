@@ -269,10 +269,10 @@ module UsefullTable
       @options[:paginator] ||= {}
       @options[:paginator][:visible] = true if @options[:paginator][:visible].nil?
       @options[:paginator][:visible] = false if !@object.respond_to? :total_pages
-      @options[:paginator][:class] = "usefull_table_paginator"
+      @options[:paginator][:class] = "usefull_table_paginator span-24"
       
       #Container
-      @options[:html] ||= {:class => "usefull_table_container"}
+      @options[:html] ||= {:class => "usefull_table_container span-24"}
       
       #Excel
       @options[:export] ||= {}
@@ -284,7 +284,7 @@ module UsefullTable
       #remove search options if custom url is passed
       @options[:export][:search] = @options[:export][:url] ? false : true
       @options[:export][:url] ||= @template.url_for(:action => "create", :controller => "usefull_table/table") + ".xlsx"
-      @options[:export][:class] = "usefull_table_export"
+      @options[:export][:class] = "usefull_table_export span-24"
       
       #Table
       @options[:table] ||= {}
