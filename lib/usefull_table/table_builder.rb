@@ -119,6 +119,7 @@ module UsefullTable
       options[:body_type] ||= options[:url].blank? ? :value : :link
       options[:label] ||= attribute
       options[:td_html] ||= ''
+      option_if = options.delete(:if)
       @data << options
     end
     
@@ -361,7 +362,8 @@ module UsefullTable
     def body(obj, attribute)
       #Rails::logger.info("TableBuilder#body")
       out = ""
-      out_html = ""
+      out_html = ""  
+      if_value = attribute[:if].kind_of?(Proc) ? attribute[:if].call(obj) : true
       case attribute[:type]
         when :link then
           out_html = attribute_link(obj, attribute)
@@ -395,7 +397,7 @@ module UsefullTable
           end
       else
         out_html = out = I18n.t(:body_error, :scope => :usefull_table, :default => "Body Error")
-      end
+      end if if_value == true
       {:html => out_html.to_s.html_safe, :plain =>  out, :td_html => attribute[:td_html]}
     end
     
