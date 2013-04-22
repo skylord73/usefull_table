@@ -5,6 +5,7 @@ it:
     header_error: Errore
     body_error: Errore
     confirm: "Sei sicuro?"
+    #
     
   #Localize monitor flag when exporting to_a (xlsx, xls, pdf)
     monitor:
