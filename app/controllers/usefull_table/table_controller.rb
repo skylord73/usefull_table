@@ -1,6 +1,6 @@
 module UsefullTable
   class TableController < ::ApplicationController
-    
+
     def create
       usefull_table = HashWithIndifferentAccess.new(ActiveSupport::JSON.decode(params[:usefull_table]))
       #Rails::logger.info("MonitorsController back=#{usefull_table[:paths].inspect}")
@@ -12,13 +12,13 @@ module UsefullTable
         end
         @params = usefull_table[:params]
       end
-      
+
       respond_to do |format|
         format.html
         format.xlsx { render :xlsx => "create", :template => select_path(usefull_table[:paths],"xlsx.maker") }
       end
     end
-    
+
     def update
       #usefull_table = HashWithIndifferentAccess.new(ActiveSupport::JSON.decode(params[:usefull_table]))
       Rails::logger.info("TableController#update params=#{params.inspect}")
@@ -28,7 +28,6 @@ module UsefullTable
         render :text => CGI::escapeHTML(@item.send(params[:attribute_name]).to_s)
       end
     end
-    
 
   end    
 end

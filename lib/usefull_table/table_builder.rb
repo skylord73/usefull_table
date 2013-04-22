@@ -269,10 +269,10 @@ module UsefullTable
       @options[:paginator] ||= {}
       @options[:paginator][:visible] = true if @options[:paginator][:visible].nil?
       @options[:paginator][:visible] = false if !@object.respond_to? :total_pages
-      @options[:paginator][:class] = "usefull_table_paginator"
+      @options[:paginator][:class] = "usefull_table_paginator span-24"
       
       #Container
-      @options[:html] ||= {:class => "usefull_table_container"}
+      @options[:html] ||= {:class => "usefull_table_container span-24"}
       
       #Excel
       @options[:export] ||= {}
@@ -284,11 +284,11 @@ module UsefullTable
       #remove search options if custom url is passed
       @options[:export][:search] = @options[:export][:url] ? false : true
       @options[:export][:url] ||= @template.url_for(:action => "create", :controller => "usefull_table/table") + ".xlsx"
-      @options[:export][:class] = "usefull_table_export"
+      @options[:export][:class] = "usefull_table_export span-24"
       
       #Table
       @options[:table] ||= {}
-      @options[:table][:div_html] ||=  {:class => "usefull_table"}
+      @options[:table][:div_html] ||=  {:class => "usefull_table span-24"}
       @options[:table][:header_html] ||= {:class => "first_row"}
       #Ususally column_type is  :sort, but is search is not present I cannot render a sort_link...
       @options[:table][:header_type] = :human if @search.nil?

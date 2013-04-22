@@ -119,8 +119,8 @@ module UsefullTableHelper
       out << stylesheet_link_tag('usefull_table.css')
       out << content_tag(:div, options[:html]) do
         ext = ''
-        ext << usefull_table_paginator_for(object, options[:paginator])
         ext << usefull_table_export_for(object,search,builder, options[:export])
+        ext << usefull_table_paginator_for(object, options[:paginator])
         ext << usefull_table_for(builder, object, search, options[:table])
         ext << usefull_table_paginator_for(object, options[:paginator])
         ext.html_safe
