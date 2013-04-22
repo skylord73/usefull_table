@@ -1,3 +1,0 @@
-<h>Show</h>
-<p id='id'><%= @item.id %></p>
-<p><%=@item.inspect %></p>
