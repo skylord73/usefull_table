@@ -119,7 +119,6 @@ module UsefullTable
       options[:body_type] ||= options[:url].blank? ? :value : :link
       options[:label] ||= attribute
       options[:td_html] ||= ''
-      option_if = options.delete(:if)
       @data << options
     end
     
