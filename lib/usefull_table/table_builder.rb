@@ -248,7 +248,8 @@ module UsefullTable
       num = 1
       data.delete_if { |element| element[:method_name] == :link || element[:body].kind_of?(Proc)}
       data.each do |element|
-        element[:url] = "/" if element[:url].present?
+        element[:url] = "/" if element[:url].present? 
+        element.delete(:if)
       end if data.present?
       #Rails::logger.info("TableBuilder#_sanitize_data(fine) data=#{data.inspect}")
       data
