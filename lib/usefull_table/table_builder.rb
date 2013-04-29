@@ -108,7 +108,9 @@ module UsefullTable
     #   
     # :url => "static_path" or Proc       #Proc expose the object instance of the current row
     #
-    # :inline => true (default false) enable inline edit
+    # :inline => true (default false) enable inline edit      
+    #
+    # :if => evaluate a Proc to show colum value or not
     #
     def col(attribute, *args)
       options = args.extract_options!
