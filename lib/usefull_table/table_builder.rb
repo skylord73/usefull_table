@@ -108,7 +108,9 @@ module UsefullTable
     #   
     # :url => "static_path" or Proc       #Proc expose the object instance of the current row
     #
-    # :inline => true (default false) enable inline edit
+    # :inline => true (default false) enable inline edit      
+    #
+    # :if => evaluate a Proc to show colum value or not
     #
     def col(attribute, *args)
       options = args.extract_options!
@@ -119,7 +121,6 @@ module UsefullTable
       options[:body_type] ||= options[:url].blank? ? :value : :link
       options[:label] ||= attribute
       options[:td_html] ||= ''
-      option_if = options.delete(:if)
       @data << options
     end
     
@@ -249,7 +250,8 @@ module UsefullTable
       num = 1
       data.delete_if { |element| element[:method_name] == :link || element[:body].kind_of?(Proc)}
       data.each do |element|
-        element[:url] = "/" if element[:url].present?
+        element[:url] = "/" if element[:url].present? 
+        element.delete(:if)
       end if data.present?
       #Rails::logger.info("TableBuilder#_sanitize_data(fine) data=#{data.inspect}")
       data
