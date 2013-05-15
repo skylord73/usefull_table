@@ -343,8 +343,6 @@ module UsefullTable
           value = nestize(attribute)
           # out_html = @template.sort_link(@search, value)
           # Set column Header default sorting to 'desc' (at the first click)
-          mylog("#{@search.inspect}",:search,:YELLOW)
-          mylog("#{value.inspect}",:value,:YELLOW)
           out_html = @template.sort_link(@search, value, :default_order => :desc)
           out = value
         when :plain then
