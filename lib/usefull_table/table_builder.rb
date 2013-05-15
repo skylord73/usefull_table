@@ -341,7 +341,8 @@ module UsefullTable
       case attribute[:header_type]
         when :sort then
           value = nestize(attribute)
-          out_html = @template.sort_link(@search, value)
+          # out_html = @template.sort_link(@search, value)
+          out_html = @template.sort_link(@search, value, :default_order => 'desc')
           out = value
         when :plain then
           out_html = out = attribute[:label] = localize(attribute[:label])
