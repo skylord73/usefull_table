@@ -343,6 +343,7 @@ module UsefullTable
           value = nestize(attribute)
           # out_html = @template.sort_link(@search, value)
           # Set column Header default sorting to 'desc' (at the first click)
+          mylog("#{@request.params[:search]}",:params_search,:YELLOW)
           out_html = @template.sort_link(@search, value, :default_order => :desc)
           out = value
         when :plain then
@@ -506,7 +507,7 @@ module UsefullTable
     #Render a red/green label 
     def attribute_bool(value)
       name = value ? :ok : :ko
-      @template.content_tag(:span, @template.image_tag(I18n.t(name, :scope => "usefull_table.icons", :defualt => "usefull_table_#{name.to_s}.png")), :align => :center )
+      @template.content_tag(:span, @template.image_tag(I18n.t(name, :scope => "usefull_table.icons", :default => "usefull_table_#{name.to_s}.png")), :align => :center )
     end
     
     
