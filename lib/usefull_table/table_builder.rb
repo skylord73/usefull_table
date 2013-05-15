@@ -342,8 +342,11 @@ module UsefullTable
         when :sort then
           value = nestize(attribute)
           # out_html = @template.sort_link(@search, value)
-          # Set column Header default sorting to 'desc' (at the first click)
-          mylog("#{@template.request.params[:search]}",:params_search,:YELLOW)
+          
+          # Set column Header default sorting to 'desc' (at the first click).
+          # If in the controller you specified a default filter for a column which already sets
+          # the default order to "desc", then the first click will sort by ascending order this time,
+          # only for that column/field.
           out_html = @template.sort_link(@search, value, :default_order => :desc)
           out = value
         when :plain then
