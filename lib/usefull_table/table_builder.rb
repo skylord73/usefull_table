@@ -285,7 +285,7 @@ module UsefullTable
       @options[:export][:human] = true if @options[:export][:human].nil?
       @options[:export][:worksheet] ||= @object.first.class.name.gsub(/::/,"#")
       #remove search options if custom url is passed
-      @options[:export][:search] = @options[:export][:url] ? false : true
+      @options[:export][:search] |= @options[:export][:url] ? false : true
       @options[:export][:url] ||= @template.url_for(:action => "create", :controller => "usefull_table/table") + ".xlsx"
       @options[:export][:class] = "usefull_table_export span-24"
       

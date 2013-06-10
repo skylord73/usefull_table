@@ -55,7 +55,11 @@ module UsefullTableHelper
   # options[:export][:filter] = *true* | false   _note:_ false if @search not present
   # options[:export][:human] = *true* | false
   # options[:export][:worksheet] = *object.class.name.gsub(/::/,"#")*  _note:_ class name with namespace separator #
-  # options[:export][:url] = custom url
+  # options[:export][:url] = custom url 
+  # options[:export][:search] |= options[:export][:url] ? false : true 
+  # If you have a custom url and force :search = true, you have to manage the deserialization of params[:usefull_table]
+  # see app/controllers/usefull_table/table_controller for a pratical example.
+  # the option is used to manage the filter params in custom url files 
   #===Table
   # options[:table][:div_html] =  *{:class => "usefull_table"}*
   # options[:table][:header_html] = *{:class => "first_row"}*
