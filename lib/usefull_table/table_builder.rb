@@ -406,8 +406,9 @@ module UsefullTable
           end
       else
         out_html = out = I18n.t(:body_error, :scope => :usefull_table, :default => "Body Error")
-      end if if_value == true
-      {:html => simple_format(out_html.to_s.html_safe), :plain =>  out, :td_html => attribute[:td_html]}
+      end if if_value == true                                                                                      
+      {:html => out_html.to_s.html_safe, :plain =>  out, :td_html => attribute[:td_html]}
+      {:html => out_html.to_s.html_safe.gsub(/\n/, '<br/>'), :plain =>  out, :td_html => attribute[:td_html]} if attribute[:wrap]
     end
     
     
