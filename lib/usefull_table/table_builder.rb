@@ -121,6 +121,7 @@ module UsefullTable
       options[:body_type] ||= options[:url].blank? ? :value : :link
       options[:label] ||= attribute
       options[:td_html] ||= ''
+      options[:wrap] ||= false
       @data << options
     end
     
@@ -406,7 +407,7 @@ module UsefullTable
       else
         out_html = out = I18n.t(:body_error, :scope => :usefull_table, :default => "Body Error")
       end if if_value == true
-      {:html => out_html.to_s.html_safe, :plain =>  out, :td_html => attribute[:td_html]}
+      {:html => simple_format(out_html.to_s.html_safe), :plain =>  out, :td_html => attribute[:td_html]}
     end
     
     
