@@ -1,14 +1,21 @@
 /*Export*/
-div.usefull_table_export  input[type='submit']{
-	background: orange;
+  
+div.usefull_table_export {
+	background: gold;
 	border-width: 1px;
 	margin-top: 3px;
-	margin-bottom: 3px;
+	margin-bottom: 3px;	
+	top:35px;
+	right:300px
 }
 
+div.usefull_table_export  input[type='submit']{
+	background: orange;
+}
+  
 /*Paginator */
 div.usefull_table_paginator {
-	width: 100%;
+	width: 99%;
 	background: white;
 	cursor: default;
 	border: 2px solid #dddddd;
@@ -71,28 +78,40 @@ div.usefull_table_paginator {
     overflow: hidden; }
 
 /* Table*/
+div.usefull_table {width:100%;overflow:auto;}
 div.usefull_table table {
 	border-collapse:collapse;
 	border-spacing:0;
 	margin-bottom:1.4em;
 	width:100%;}
+
+div.usefull_table tbody {
+	width:100%;}
 div.usefull_table tbody tr.first_row {
-	background:#C3D934;}
+	background:#C3D934;
+  font-weight:bold;}
 div.usefull_table tbody tr.odd {
 	background-color: #FFFFFF;}
 div.usefull_table tbody tr.even {
 	background-color: #E5ECF9;}
 div.usefull_table td, .usefull_table th {
+	text-align: center;
 	padding:2px 4px;
-	text-align:left;
 	margin:0;
 	vertical-align:middle;
 	float:none !important;
-	max-width:500px;
-	border-collapse: collapse;}
-div.usefull_table th {
-	font-weight:bold;
-	border:0 none;}
+	max-width:400px;
+	border-collapse: collapse;
+	}
+.min30{
+min-width:30px !important;  
+}
+.min75{
+min-width:75px !important;
+}
+	
+/*div.usefull_table th {
+	border:0 none;}*/
 div.usefull_table td {
 	border-bottom:1px solid red;
 	text-overflow:ellipsis;
