@@ -11,6 +11,8 @@ BugToFix
 - Export: currency column must not be renderered as string
 - Export: unable to find local view if namespace are used. If I call export from /production/orders/index.html
 					contrllers.paths has only /orders/index.xlsx.maker
+1.0.8 (September 5, 2013)
+- Fixed Header Link localization, now localize association correctly
 
 1.0.7 (March 30, 2013)
 - Fixed data_type => Date, Time, DateTime crash with blank/empty values

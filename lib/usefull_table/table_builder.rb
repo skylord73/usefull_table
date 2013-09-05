@@ -342,13 +342,14 @@ module UsefullTable
       case attribute[:header_type]
         when :sort then
           value = nestize(attribute)
+          title = localize_title(attribute)
           # out_html = @template.sort_link(@search, value)
           
           # Set column Header default sorting to 'desc' (at the first click).
           # If in the controller you specified a default filter for a column which already sets
           # the default order to "desc", then the first click will sort by ascending order this time,
           # only for that column/field.
-          out_html = @template.sort_link(@search, value, :default_order => :desc)
+          out_html = @template.sort_link(@search, value, title, :default_order => :desc)
           out = value
         when :plain then
           out_html = out = attribute[:label] = localize(attribute[:label])
@@ -410,6 +411,18 @@ module UsefullTable
       {:html => out_html.to_s.html_safe, :plain =>  out, :td_html => attribute[:td_html]}
     end
     
+    #Localize attribute through associations
+    #association.association1.attribute => association1.klass.attribute
+    def localize_title(attribute)
+      associations = attribute[:name].to_s.split(".")
+      klass = @object.klass
+      while associations.size > 1
+        klass = klass.reflect_on_association(associations.shift.to_sym).klass
+      end 
+      #ass= associations.shift
+      #klass = klass.reflect_on_association(ass).klass 
+      klass.human_attribute_name(associations)
+    end
     
     #Localize if Symbol, print if String
     def localize(value)
