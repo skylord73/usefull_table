@@ -415,7 +415,7 @@ module UsefullTable
     #association.association1.attribute => association1.klass.attribute
     def localize_title(attribute)
       associations = attribute[:name].to_s.split(".")
-      klass = @object.klass
+      klass = @object.respond_to?(:klass) ? @object.klass : @object.class
       while associations.size > 1
         klass = klass.reflect_on_association(associations.shift.to_sym).klass
       end 
