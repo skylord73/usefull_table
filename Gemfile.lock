@@ -6,6 +6,20 @@ PATH
       axlsx (= 1.3.6)
       rails (~> 3.0.14)
 
+PATH
+  remote: /home/www/gems/acts_as_monitor
+  specs:
+    acts_as_monitor (1.0.4)
+      rails (~> 3.0.14)
+
+PATH
+  remote: /home/www/gems/acts_as_xls
+  specs:
+    acts_as_xls (1.0.6)
+      axlsx
+      rails (~> 3.0.14)
+      spreadsheet
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -36,12 +50,6 @@ GEM
       activemodel (= 3.0.15)
       activesupport (= 3.0.15)
     activesupport (3.0.15)
-    acts_as_monitor (1.0.4)
-      rails (~> 3.0.14)
-    acts_as_xls (1.0.4)
-      axlsx
-      rails (~> 3.0.14)
-      spreadsheet
     addressable (2.2.8)
     arel (2.0.10)
     axlsx (1.3.6)
@@ -133,8 +141,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_monitor
-  acts_as_xls
+  acts_as_monitor!
+  acts_as_xls!
   capybara (>= 0.4.0)
   meta_search
   rails (~> 3.0.14)
