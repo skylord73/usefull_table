@@ -1,0 +1,30 @@
+en:
+  usefull_table:
+    submit_excel: Excel
+    header_error: Error
+    body_error: Error
+    confirm: "Are you sure?"
+    
+  #Localize monitor flag when exporting to_a (xlsx, xls, pdf)
+    monitor:
+      green: Ok
+      yellow: Problem
+      red: Error
+      title: "Status"
+    
+    icons:
+      show: "usefull_table_show.png"
+      edit: "usefull_table_edit.png"
+      destroy: "usefull_table_destroy.png"
+      download: "usefull_table_download.png" 
+      ok: "usefull_table_true.png"
+      ko: "usefull_table_false.png"
+  time:
+    formats:
+      usefull_table_time: "%H:%M"
+      usefull_table_datetime: "%m/%d/%Y %H:%M"
+      usefull_table_date: "%m/%d/%Y"
+      
+  date:
+    formats:
+      usefull_table_date: "%m/%d/%Y"
