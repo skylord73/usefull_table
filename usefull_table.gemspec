@@ -18,5 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~>3.0.14"
   s.add_dependency "axlsx", "<1.3.6"
   s.add_dependency "acts_as_xls"
+  s.add_dependency "meta_search"
+  s.add_dependency "will_paginate"
   
 end
