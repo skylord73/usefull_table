@@ -40,9 +40,9 @@ module UsefullTable
       @template = template
       
       if options[:params]
-        #debugger
+        #debugger 
         @data = _decode_hash(options[:params][:data]).map{|e| e.with_indifferent_access } if options[:params][:data].present?
-        opt = _decode_hash(options[:params][:options]).with_indifferent_access
+        opt = _decode_hash(options[:params][:options]).with_indifferent_access  
       else
         @data ||= []
       end
@@ -52,7 +52,7 @@ module UsefullTable
       @excel = []
       yield(self) if block
       
-      #Rendering order is importanto so body and header are pre-rendered by initilizer and returned at will.
+      #Rendering order is important so body and header are pre-rendered by initilizer and returned at will.
       @rendered_header = _render_header
       @rendered_body = _render_body
     end
@@ -235,7 +235,6 @@ module UsefullTable
       @params = {}
       @params[:data] = _encode_hash(_sanitize_data(@data))
       @params[:options] = _encode_hash(@options)
-      
       @params
     end
     
@@ -259,11 +258,11 @@ module UsefullTable
     end
     
     def _encode_hash(a)
-      a.to_xml
+      Marshal.dump(a)
     end
     
     def _decode_hash(a)
-      ActiveResource::Formats::XmlFormat.decode(a)
+      Marshal.load(a)
     end
     
     #set default values for options
@@ -338,7 +337,7 @@ module UsefullTable
     #Render column Header
     def header(attribute)
       out = ""
-      out_html = ""
+      out_html = "" 
       case attribute[:header_type]
         when :sort then
           value = nestize(attribute)

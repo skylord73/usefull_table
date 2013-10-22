@@ -205,11 +205,14 @@ module UsefullTableHelper
         @params[:search] = search.search_attributes unless search.blank?
         @params[:class_name] = object.first.class.name
         @params[:params] = builder.to_param
-        @params[:paths] = view_paths.map {|path| "#{path.to_path}/#{controller_name}/#{action_name}.xlsx.maker"}
+        @params[:paths] = view_paths.map {|path| "#{path.to_path}/#{controller_name}/#{action_name}.xlsx.maker"} 
         #Rails::logger.info("table_for#excel_tag @path=#{self.controller_name}, action=#{action_name}, path=#{view_paths.first.to_path}\n\n")
         content_tag(:div, :class => options[:class]) do 
           form_tag( options[:url] , :method => :post) do
-            hidden_field_tag("usefull_table", @params.to_json) + 
+            hidden_field_tag("usefull_table", @params.to_json) +
+            #hidden_field_tag("usefull_table", Marshal.dump(@params)) +
+            #hidden_field_tag("usefull_table", @params.to_yaml) +  
+            #hidden_field_tag("usefull_table", 'Ciccio') +
             submit_tag(I18n.t(:submit_excel, :scope => :usefull_table))
           end
         end

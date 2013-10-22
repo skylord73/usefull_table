@@ -3,7 +3,6 @@ module UsefullTable
 
     def create
       usefull_table = HashWithIndifferentAccess.new(ActiveSupport::JSON.decode(params[:usefull_table]))
-      #Rails::logger.info("MonitorsController back=#{usefull_table[:paths].inspect}")
       if usefull_table[:class_name].present?
         if usefull_table[:search].present?
           @object = usefull_table[:class_name].constantize.search(usefull_table[:search]).relation
