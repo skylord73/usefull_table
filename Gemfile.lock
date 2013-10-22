@@ -138,6 +138,7 @@ DEPENDENCIES
   acts_as_monitor
   acts_as_xls
   capybara (>= 0.4.0)
+  nokogiri (= 1.5.5)
   rails (~> 3.0.20)
   ruby-debug
   usefull_table!
