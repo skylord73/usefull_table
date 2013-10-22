@@ -15,7 +15,8 @@ BugToFix
 					
 1.0.9 (October 15, 2013)
 - Fixed metasearch and willpaginate dependency
-- Added usefull_table.en.yml, to make gem working out of the box for en users!
+- Added usefull_table.en.yml, to make gem working out of the box for en users! 
+- Fixed Excel Export problem with Rails 3.0.20 due to xml decode symbols
 
 1.0.8 (September 5, 2013)
 - Fixed Header Link localization, now localize association correctly
